@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anoop Kumar Sharma</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/iconoir.css">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<?php include("header.php"); ?>
 <body>
 
     <main class="main-homepage">
@@ -252,33 +233,7 @@
                 </div>
             </div>
         </section>
+        
+        <?php include("footer.php"); ?>
 
-        <!-- Footer -->
-        <footer class="footer-area">
-            <div class="container">
-                <div class="footer-content text-center">
-                    <a href="./index.html" class="logo">
-                        <img src="images/logo_A.png" alt="Logo">
-                    </a>
-                    <ul class="footer-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="works.html">Works</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                    <p class="copyright">
-                        &copy; All rights reserved by <span>Anoop Kumar Sharma</span>
-                    </p>
-                </div>
-            </div>
-        </footer>
-
-    </main>
-    
-
-    <script src="js/jquery-3.6.4.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+        
