@@ -1,36 +1,3 @@
-<?php include("header.php"); ?>
-<body>
-
-    <main class="main-workdetails-page">
-
-        <!-- Header -->
-        <header class="header-area">
-            <div class="container">
-                <div class="gx-row d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="logo">
-                        <img src="fonts/logo.svg" alt="Logo">
-                    </a>
-
-                    <nav class="navbar">
-                        <ul class="menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="works.html">Works</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                        <a href="./contact.html" class="theme-btn">Let's talk</a>
-                    </nav>
-
-                    <a href="./contact.html" class="theme-btn">Let's talk</a>
-
-                    <div class="show-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </header>
 
         <!-- Breadcrumb -->
         <section class="breadcrumb-area">
@@ -90,4 +57,3 @@
                 </div>
             </div>
         </section>
-<?php include("footer.php"); ?>

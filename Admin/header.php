@@ -4,7 +4,7 @@
 <head>
 
     <head>
-        <script src="./assets/js/color-modes.js"></script>
+        <script src="./Admin/assets/js/color-modes.js"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
 
-        <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./Admin/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <style>
             .bd-placeholder-img {
@@ -96,20 +96,23 @@
         <!-- Custom styles for this template -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
         <!-- Custom styles for this template -->
-        <link href="./dashboard/dashboard.css" rel="stylesheet">
+        <link href="./Admin/dashboard/dashboard.css" rel="stylesheet">
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="./assets/dist/css/iconoir.css">
-        <link rel="stylesheet" href="./assets/dist/css/style_1.css">
-        
-        
-        <link rel="stylesheet" href="./assets/dist/css/aos.css">
+        <link rel="stylesheet" href="./Admin/assets/dist/css/iconoir.css">
+        <link rel="stylesheet" href="./Admin/assets/dist/css/style_1.css">
+
+
+        <link rel="stylesheet" href="./Admin/assets/dist/css/aos.css">
         <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
-        
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-        <script src="https://cdn.tiny.cloud/1/w3r0r9zl5y3j624ieuxvyfe8hfvittfeqv5o8o08mjzh4ize/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap"
+            rel="stylesheet">
+        <script src="https://cdn.tiny.cloud/1/w3r0r9zl5y3j624ieuxvyfe8hfvittfeqv5o8o08mjzh4ize/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
     </head>
 
 <body>
@@ -290,14 +293,14 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="?p=home">
                                     <svg class="bi">
                                         <use xlink:href="#house-fill" /></svg>
                                     All Blogs
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="?p=edit">
                                     <svg class="bi">
                                         <use xlink:href="#file-earmark" /></svg>
                                     Create Blog
@@ -308,7 +311,7 @@
 
                             <ul class="nav flex-column mb-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                    <a class="nav-link d-flex align-items-center gap-2" href="?function=logout">
                                         <svg class="bi">
                                             <use xlink:href="#door-closed" /></svg>
                                         Sign out

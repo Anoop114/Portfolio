@@ -1,35 +1,19 @@
     </div>
   </div>
   <!-- main table data end -->
-    <script src="./assets/dist/js/jquery-3.6.4.js"></script>
+    <script src="./Admin/assets/dist/js/jquery-3.6.4.js"></script>
     <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
-    <script src="./assets/dist/js/aos.js"></script>
-    <script src="./assets/dist/js/main.js"></script>
+    <script src="./Admin/assets/dist/js/main.js"></script>
+    <script src="./Admin/assets/dist/js/aos.js"></script>
 
 
-  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script><script src="./dashboard/dashboard.js"></script>
+  <script src="./Admin/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
+  <script src="./Admin/dashboard/dashboard.js"></script>
   
 
   <script>
-        // tinymce.init({
-        //     setup: (editor) => {
-        //         var newColor = document.createElement("style");
-        //         document.head.appendChild(newColor);
-        //         newColor.sheet.insertRule("#editor_ifr {background: black}");
-        //     },
-
-        //     disable_scroll: true,
-        //     inspect: true,
-        //     selector: '#editor', // change this value according to your HTML
-        //     statusbar: false,
-        //     plugins: ['codesample', 'advcode', 'autoresize'],
-        //     toolbar: ['codesample', 'code', ],
-        //     // readonly: true,
-        //     // toolbar: false,
-        //     // statusbar: false,
-        //     // menubar: false,            
-        // });
+        
         var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         tinymce.init({
@@ -48,11 +32,7 @@
             image_title: true,
             /* enable automatic uploads of images represented by blob or data URIs*/
             automatic_uploads: true,
-            /*
-              URL of our upload handler (for more details check: https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_url)
-              images_upload_url: 'postAcceptor.php',
-              here we add custom filepicker only to Image dialog
-            */
+
             file_picker_types: 'image',
             /* and here's our custom image picker*/
             file_picker_callback: function (cb, value, meta) {
@@ -60,24 +40,11 @@
                 input.setAttribute('type', 'file');
                 input.setAttribute('accept', 'image/*');
 
-                /*
-                  Note: In modern browsers input[type="file"] is functional without
-                  even adding it to the DOM, but that might not be the case in some older
-                  or quirky browsers like IE, so you might want to add it to the DOM
-                  just in case, and visually hide it. And do not forget do remove it
-                  once you do not need it anymore.
-                */
-
                 input.onchange = function () {
                     var file = this.files[0];
 
                     var reader = new FileReader();
                     reader.onload = function () {
-                        /*
-                          Note: Now we need to register the blob in TinyMCEs image blob
-                          registry. In the next release this part hopefully won't be
-                          necessary, as we are looking to handle it internally.
-                        */
                         var id = 'blobid' + (new Date()).getTime();
                         var blobCache = tinymce.activeEditor.editorUpload.blobCache;
                         var base64 = reader.result.split(',')[1];

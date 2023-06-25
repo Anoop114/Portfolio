@@ -53,6 +53,4 @@
     </section>
     <!--Form End-->
     <?php include("addBlog.php"); ?>
-
-
 </main>
