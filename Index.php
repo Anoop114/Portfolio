@@ -1,5 +1,7 @@
 <?php
 include("function.php");
+include("db.php");
+
 if($session_id){
     include("Admin/header.php");
     
@@ -30,5 +32,12 @@ else{
     include("Main/footer.php");
 }
 
-
+// id
+// blog name
+// unity scene name
+// open btn
+// banner image
+// folder name.
+// date time.
 ?>
+
