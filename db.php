@@ -9,7 +9,18 @@ if (mysqli_connect_errno()) {
     
 }
 
-function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$unitySceneBtn,$bannerImageUrl)
+function GetBlogData() {
+    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+
+    $query = "SELECT * FROM `blogdata` ORDER BY id DESC";
+    $result = mysqli_query($link, $query);
+    
+    mysqli_close($link);
+    return $result;
+}
+
+
+function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$bannerImageUrl)
 {
     $link = mysqli_connect("localhost", "root", "", "my_blogs");
 
@@ -17,7 +28,10 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$unitySceneBtn,$bannerIm
     $result = mysqli_query($link, $query);
     $rows = mysqli_fetch_assoc($result);
     
-    $folderName = (int)$rows['id'] + 1;
+    $folderName = 0;
+    if($rows['id'] != null || $rows['id'] != 0){
+        $folderName = (int)$rows['id'] + 1;
+    }
     
     $sql = "INSERT INTO blogdata 
     (

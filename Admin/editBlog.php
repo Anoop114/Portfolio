@@ -28,11 +28,19 @@
             </div>
             <img src="https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285__340.jpg"
                 class="img-fluid mx-auto d-block  my-3" alt="...">
-            <div class="mb-3">
+            <div class="row">
                 <label for="formFile" class="form-label">Add Files</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
+                    
+                <div class="col-md-4">
+                    <input class="form-control" type="file" id="formFile">
+                </div>
 
+                <div class="col-md-4" >
+                    <button name="addFile" class="btn btn-success">Add File</button>
+                    <button name="RefreshData" class="btn btn-primary refreshFileData">Refresh</button>
+                </div>
+            </div>
+<br>
             <div class="form-control">
                 <div class="table-responsive small">
                     <table class="table table-striped table-sm">
@@ -44,7 +52,7 @@
                                 <th scope="col" class="text-center">Edit</th>
                             </tr>
                         </thead>
-                        <tbody class="table-group-divider">
+                        <tbody class="table-group-divider DataHolder">
                             <tr>
                                 <td>100</td>
                                 <td>abc.pic</td>
@@ -82,6 +90,20 @@
         </section>
     </form>
     <!--Form End-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+          $(document).on('click', '.refreshFileData', function () {
+            $.ajax({
+              url: 'index.php',
+              method: "GET",
+              dataType: 'json',
+              success: function (response) {
+                $('#DataHolder').html(response);
+              }
+            });
+          });
+        });
+      </script>
 </main>
 
 <?php
@@ -93,8 +115,8 @@ if(isset($_POST['createBlog'])){
     $blogData = $_POST['blogData'];
     $unitySceneName = $_POST['unityScene'];
     $bannerImage = $_POST['bannerImage'];    
-    //CreateBlog($blogTitle,$blogData,$unitySceneName,$unitySceneBtn,$bannerImage);
-    FreeLastUnwantedCreatedDir();
+    CreateBlog($blogTitle,$blogData,$unitySceneName,$bannerImage);
+    //FreeLastUnwantedCreatedDir();
 }   
 
 ?>
