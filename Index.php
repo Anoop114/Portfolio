@@ -8,7 +8,12 @@ if($session_id){
     if($page == "edit"){
         include("Admin/editBlog.php");
     }
-
+    else if($page == "create"){
+        include("Admin/createBlogTitle.php");
+    }
+    else if($page == "file"){
+        include("Admin/updateFiles.php");
+    }
     else if($page == "home"){
         include("Admin/index.php");
     }

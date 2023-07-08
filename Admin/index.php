@@ -28,10 +28,10 @@
               </thead>
 
               <?php
-    $blogData = GetBlogData();
-    if(mysqli_num_rows($blogData)>0){
-      while($data = mysqli_fetch_assoc($blogData)){
-        ?>
+                $blogData = GetBlogData();
+                if(mysqli_num_rows($blogData)>0){
+                  while($data = mysqli_fetch_assoc($blogData)){
+                ?>
               <tbody class="table-group-divider">
                 <tr>
                   <td class="align-middle"><?php echo $data['id']; ?></td>
@@ -44,21 +44,9 @@
                   </td>
                 </tr>
               </tbody>
-
-              <?php
-      }
-    }
-    
-?>
-
-
-
+              <?php } } ?>
             </table>
           </div>
         </div>
       </div>
-
-
-
-
     </main>
