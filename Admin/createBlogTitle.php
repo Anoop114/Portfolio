@@ -34,11 +34,34 @@
 //create blog
 if(isset($_POST['createBlog'])){
     
-    $unitySceneName = $blogTitle = $blogData = $bannerImage = "";    
+    $unitySceneName = $blogTitle = $blogData = $ExtensionName = "";    
     $blogTitle = $_POST['blogTitle'];
-    $blogData = $_POST['blogData'];
     $unitySceneName = $_POST['unityScene'];
-    $bannerImage = $_POST['bannerImage'];    
-    CreateBlog($blogTitle,$blogData,$unitySceneName,$bannerImage);
+
+
+
+    CreateDirectoryAndAddFile();
+    $extension  = pathinfo( $_FILES["bannerImage"]["name"], PATHINFO_EXTENSION );
+    $tempname = $_FILES["bannerImage"]["tmp_name"];
+    $ExtensionName = UploadFileInDB($extension,$tempname);
+
+    if($ExtensionName == ''){
+        echo "<script> alert('Somthing error or file has not any formate.'); </script>";
+    }else{
+        CreateBlog($blogTitle,$blogData,$unitySceneName,$ExtensionName);
+    }
+
+
+
+}
+
+function UploadFileInDB($extension,$tempname){
+    $filename = 'BannerData'.'.'.$extension;
+    $folder = GetFileLocation() ."/". $filename;
+    if (move_uploaded_file($tempname, $folder)) {
+        return $extension;
+    } else {
+        return '';
+    }
 }
 ?>
