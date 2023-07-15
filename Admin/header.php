@@ -113,6 +113,8 @@
     <script src="https://cdn.tiny.cloud/1/w3r0r9zl5y3j624ieuxvyfe8hfvittfeqv5o8o08mjzh4ize/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 	</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -312,14 +314,6 @@
                                     <svg class="bi">
                                         <use xlink:href="#file-earmark" /></svg>
                                     Update Last Blog
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="?p=file">
-                                    <svg class="bi">
-                                        <use xlink:href="#file-earmark" /></svg>
-                                    Upload Files
                                 </a>
                             </li>
                             <hr class="my-3">

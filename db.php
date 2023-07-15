@@ -43,9 +43,9 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$extension){
     $query = "SELECT `id` FROM `blogdata` ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($link, $query);
     $rows = mysqli_fetch_assoc($result);
-    
-    $folderName = 0;
-    if($rows['id'] != null || $rows['id'] != 0){
+
+    $folderName = 1;
+    if(mysqli_num_rows($result)>0){
         $folderName = (int)$rows['id'] + 1;
     }
     
@@ -91,6 +91,24 @@ function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName){
     mysqli_close($link);
 }
 
+//delete blog
+
+function DeleteBlog($id){
+    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $sql = "DELETE FROM `blogdata` WHERE `id`= ".$id." ";
+    if (mysqli_query($link, $sql)) {
+        echo "<script> alert('Record Delete successfully.'); </script>";
+        return true;
+        
+    }else{
+        echo "<script> alert('Record delete failed.'); </script>";
+        return false;
+    }
+    mysqli_close($link);
+}
+
+
+
 //update folder file data
 function UpdateFileFolder($ID,$file_Name,$folder){
     $link = mysqli_connect("localhost", "root", "", "my_blogs");
@@ -122,14 +140,47 @@ function InsertFileFolder($file_Name,$folder){
 
     if (mysqli_query($link,$sql)) {
         echo "<script> alert('New record created successfully'); </script>";
+        return true;
     } else {
         echo  '<script> alert("Error: on upload"); </script>';
+        return false;
     }
     mysqli_close($link);
 }
 
+//delete Image.
+function DeleteFileBYID($id){
+    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $sql = "DELETE FROM filedata WHERE id='$id'";
+    if (mysqli_query($link, $sql)) {
+        echo "<script> alert('Record Delete successfully.'); </script>";
+        return true;
+        
+    }else{
+        echo "<script> alert('Record delete failed.'); </script>";
+        return false;
+    }
+    mysqli_close($link);
+}
+
+//delete image
+function DeleteFileBYFolderID($id){
+    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $sql = "DELETE FROM filedata WHERE folderName='$id'";
+    if (mysqli_query($link, $sql)) {
+        echo "<script> alert('Delete folder successfully.'); </script>";
+        return true;
+        
+    }else{
+        echo "<script> alert('Delete folder failed.'); </script>";
+        return false;
+    }
+    mysqli_close($link);
+}
+
+
 // page updateFiles display all files
-function GetFileDataByID($ID){
+function GetFileDataByFolderID($ID){
     $link = mysqli_connect("localhost", "root", "", "my_blogs");
 
     $query = "SELECT * FROM `filedata` WHERE `folderName`='$ID'  ORDER BY id ASC";
@@ -139,6 +190,15 @@ function GetFileDataByID($ID){
     return $result;
 }
 
+function GetFileDataByID($ID){
+    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+
+    $query = "SELECT * FROM `filedata` WHERE `id`='$ID'  ORDER BY id ASC";
+    $result = mysqli_query($link, $query);
+    
+    mysqli_close($link);
+    return $result;
+}
 
 
 
@@ -189,9 +249,7 @@ function CreateDirectoryAndAddFile(){
 }
 
 // ## need to update
-function DeleteSubFiles(){
-    $filename = GetFileLocation();
-
+function DeleteSubFiles($filename){
     $files = glob($filename.'/*'); // get all file names
     foreach($files as $file){ // iterate files
         if(is_file($file)) {
@@ -199,6 +257,6 @@ function DeleteSubFiles(){
         }
     }
     rmdir($filename);
-    echo "<script> alert('delete Success.'); </script>";
+    echo "<script> alert('delete local folder Success.'); </script>";
 }
 ?>

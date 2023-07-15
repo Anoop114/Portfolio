@@ -34,21 +34,20 @@
 //create blog
 if(isset($_POST['createBlog'])){
     
-    $unitySceneName = $blogTitle = $blogData = $ExtensionName = "";    
+    CreateDirectoryAndAddFile();
+    $unitySceneName = $blogTitle = $blogData = "";    
     $blogTitle = $_POST['blogTitle'];
     $unitySceneName = $_POST['unityScene'];
 
-
-
-    CreateDirectoryAndAddFile();
     $extension  = pathinfo( $_FILES["bannerImage"]["name"], PATHINFO_EXTENSION );
     $tempname = $_FILES["bannerImage"]["tmp_name"];
-    $ExtensionName = UploadFileInDB($extension,$tempname);
 
-    if($ExtensionName == ''){
-        echo "<script> alert('Somthing error or file has not any formate.'); </script>";
+    $Upload_File_Local = UploadFileInDB($extension,$tempname);
+
+    if($Upload_File_Local){
+        CreateBlog($blogTitle,$blogData,$unitySceneName,$extension);
     }else{
-        CreateBlog($blogTitle,$blogData,$unitySceneName,$ExtensionName);
+        echo "<script> alert('Somthing error or file has not any formate.'); </script>";
     }
 
 
@@ -56,12 +55,16 @@ if(isset($_POST['createBlog'])){
 }
 
 function UploadFileInDB($extension,$tempname){
+    $allowTypes = array('jpg');
+
     $filename = 'BannerData'.'.'.$extension;
     $folder = GetFileLocation() ."/". $filename;
-    if (move_uploaded_file($tempname, $folder)) {
-        return $extension;
-    } else {
-        return '';
+    if(in_array($extension, $allowTypes)){
+        if (move_uploaded_file($tempname, $folder)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 ?>
