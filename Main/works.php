@@ -8,7 +8,8 @@
         <h1 class="section-heading" data-aos="fade-up"><img src="./Asset/images/star-2.png" alt="Star"> All Projects
             <img src="./Asset/images/star-2.png" alt="Star"></h1>
         <div class="row">
-            <!-- <div class="col-md-4">
+            <!-- 
+                <div class="col-md-4">
                 <div data-aos="zoom-in">
                     <div class="project-item shadow-box">
                         <a class="overlay-link" href="./work-details.html"></a>
@@ -47,10 +48,12 @@
                     </div>
                 </div>
 
-            </div> -->
+                </div>
+             -->
             <div class="col-md-12">
-                <h1 class="section-heading" data-aos="fade-up"><img src="./Asset/images/star-2.png" alt="Star"> All Projects <img src="./Asset/images/star-2.png" alt="Star"></h1>
-<!-- 
+                <h1 class="section-heading" data-aos="fade-up"><img src="./Asset/images/star-2.png" alt="Star"> All
+                    Projects <img src="./Asset/images/star-2.png" alt="Star"></h1>
+            <!-- 
                 <div class="d-flex align-items-start gap-24">
                     <div data-aos="zoom-in" class="flex-1">
                         <div class="project-item shadow-box">
@@ -130,19 +133,22 @@
                         </div>
 
                     </div>
-                </div> -->
+                </div> 
+            -->
 
             </div>
 
-            <div class="col-md-12">
-                <div class="d-flex align-items-start gap-24">
-                    <?php
+            <?php
                         $counter = 0;
                         $rowcount = mysqli_num_rows($blogData);
                         if($rowcount>0){
                             while($data = mysqli_fetch_assoc($blogData)){
+                                if($counter%4 != 0 ){
                     ?>
-
+            <div class="col-md-12">
+                <div class="d-flex align-items-start gap-24">
+                    <?php } ?>
+                    <div class="col-md-4">
                         <div data-aos="zoom-in" class="flex-1">
                             <div class="project-item shadow-box">
                                 <a class="overlay-link" href="?p=Showblog&blogID=<?php echo $data['id']; ?>"></a>
@@ -160,14 +166,18 @@
                                 </div>
                             </div>
                         </div>
-                        <?php
+                    </div>
+                    <?php if($counter%3 == 0){?>
+                </div>
+            </div>
+
+            <?php
+                        }
                                 $counter++;
                             }
                         };
                     ?>
-                </div>
-            </div>
-            
+
         </div>
     </div>
 </section>
