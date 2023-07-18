@@ -4,19 +4,20 @@
 
 
 <head>
-    <script src="./Admin/assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.112.5">
     <title>Dashboard Template · Bootstrap v5.3</title>
-
+    
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
-
-
-    <link href="./Admin/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    
+    
+    <link href="./Asset/css/Bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="./Asset/css/Admin/Dark_style.css" rel="stylesheet">
+    
+    <script src="./Asset/js/Admin js/color-modes.js"></script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -91,21 +92,21 @@
             z-index: 1500;
         }
     </style>
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css">     -->
 
     <!-- Custom styles for this template -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="./Admin/dashboard/dashboard.css" rel="stylesheet">
+    <link href="./Asset/css/Admin/dashboard/dashboard.css" rel="stylesheet">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./Admin/assets/dist/css/iconoir.css">
-    <link rel="stylesheet" href="./Admin/assets/dist/css/style_1.css">
+    <link rel="stylesheet" href="./Asset/css/Admin/iconoir.css">
+    <!-- <link rel="stylesheet" href="./Admin/assets/dist/css/style_1.css"> -->
 
 
-    <link rel="stylesheet" href="./Admin/assets/dist/css/aos.css">
+    <!-- <link rel="stylesheet" href="./Admin/assets/dist/css/aos.css"> -->
+    <link rel="stylesheet" href="./Asset/css/Bootstrap/aos.css">
     <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap"

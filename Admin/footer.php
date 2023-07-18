@@ -1,15 +1,17 @@
     </div>
   </div>
   <!-- main table data end -->
-    <script src="./Admin/assets/dist/js/jquery-3.6.4.js"></script>
+    <script src="./Asset/js/jquery-3.6.4.js"></script>
     <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
-    <script src="./Admin/assets/dist/js/main.js"></script>
-    <script src="./Admin/assets/dist/js/aos.js"></script>
+    <script src="./Asset/js/main.js"></script>
+    <!-- <script src="./Admin/assets/dist/js/aos.js"></script> -->
+    <script src="./Asset/js/aos.js"></script>
 
 
-  <script src="./Admin/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="./Admin/assets/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="./Asset/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
-  <script src="./Admin/dashboard/dashboard.js"></script>
+  <script src="./Asset/js/Admin/dashboard.js"></script>
   
 
   <script>

@@ -11,12 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/iconoir.css">
+    <link rel="stylesheet" href="./Asset/css/iconoir.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="./Asset/css/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./Asset/css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./Asset/css/style.css">
+
+    <script src="https://cdn.tiny.cloud/1/w3r0r9zl5y3j624ieuxvyfe8hfvittfeqv5o8o08mjzh4ize/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
 
@@ -27,7 +29,7 @@
             <div class="container">
                 <div class="gx-row d-flex align-items-center justify-content-between">
                     <a href="./index.html" class="logo">
-                        <img src="fonts/logo.svg" alt="Logo">
+                        <img src="./Asset/fonts/logo.svg" alt="Logo">
                     </a>
 
                     <nav class="navbar">

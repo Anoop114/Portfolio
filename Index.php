@@ -28,10 +28,11 @@ else if($page == "admin_Login"){
 else{
 
     include("Main/header.php");
-    if($page == "work"){
-        include("Main/works.php");
-    }else{
+    if($page == "Showblog"){
         include("Main/blog.php");
+    }else{
+        //include("Main/blog.php");
+        include("Main/works.php");
     }
 
     include("Main/footer.php");

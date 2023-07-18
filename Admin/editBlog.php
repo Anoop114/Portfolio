@@ -75,7 +75,10 @@ if(isset($_POST['createBlog'])){
     $blogTitle = $_POST['blogTitle'];
     $unitySceneName = $_POST['unityScene'];
     $blogData = $_POST['blogData'];
-    UpdateBloge($data['id'],$blogTitle,$blogData,$unitySceneName);
+    $result = UpdateBloge($data['id'],$blogTitle,$blogData,$unitySceneName);
+    if($result){
+        echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
+    }
 }
 
 ?>

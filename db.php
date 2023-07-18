@@ -83,9 +83,10 @@ function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName){
 
 
     if (mysqli_query($link,$sql)) {
-
+        return true;
         echo "<script> alert('update completed.'); </script>";
     } else {
+        return false;
         echo  '<script> alert("Error: on upload"); </script>';
     }
     mysqli_close($link);
@@ -248,7 +249,7 @@ function CreateDirectoryAndAddFile(){
     mysqli_close($link);
 }
 
-// ## need to update
+// delete folder from db.
 function DeleteSubFiles($filename){
     $files = glob($filename.'/*'); // get all file names
     foreach($files as $file){ // iterate files
