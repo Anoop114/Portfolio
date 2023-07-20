@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Choose Image</label>
-                <input class="form-control" type="file" name="bannerImage" id="formFile">
+                <input class="form-control" type="file" name="bannerImage" id="formFile" accept=".jpg" />
             </div>
             <button name="createBlog" class="btn btn-success">Save Blog</button>
         </form>
@@ -33,7 +33,6 @@
 <?php
 //create blog
 if(isset($_POST['createBlog'])){
-    
     CreateDirectoryAndAddFile();
     $unitySceneName = $blogTitle = $blogData = "";    
     $blogTitle = $_POST['blogTitle'];
@@ -45,26 +44,25 @@ if(isset($_POST['createBlog'])){
     $Upload_File_Local = UploadFileInDB($extension,$tempname);
 
     if($Upload_File_Local){
-        CreateBlog($blogTitle,$blogData,$unitySceneName,$extension);
+        $uploadBlogDataToDB =  CreateBlog($blogTitle,$blogData,$unitySceneName,$extension);
+        if($uploadBlogDataToDB){
+            echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
+        }else{
+            echo "<script> alert('Somthing error or file has not any formate.'); </script>";
+        }
     }else{
         echo "<script> alert('Somthing error or file has not any formate.'); </script>";
     }
-
-
-
 }
 
 function UploadFileInDB($extension,$tempname){
-    $allowTypes = array('jpg');
 
     $filename = 'BannerData'.'.'.$extension;
     $folder = GetFileLocation() ."/". $filename;
-    if(in_array($extension, $allowTypes)){
-        if (move_uploaded_file($tempname, $folder)) {
-            return true;
-        } else {
-            return false;
-        }
+    if (move_uploaded_file($tempname, $folder)) {
+        return true;
+    } else {
+        return false;
     }
 }
 ?>

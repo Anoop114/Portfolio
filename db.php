@@ -64,8 +64,15 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$extension){
 
         // ## update further
         // upload file to file table.
-        InsertFileFolder($BannerName,$folderName);
+        $uploadFliesInDB = InsertFileFolder($BannerName,$folderName);
+        if($uploadFliesInDB){
+            return true;
+            echo "<script> console.log('create complete.'); </script>";
+        }else{
+            return false;
+        }
     } else {
+        return false;
         echo  '<script> alert("Error: " . $sql . "<br>" . $conn->error; </script>';
     }
     mysqli_close($link);
@@ -140,11 +147,11 @@ function InsertFileFolder($file_Name,$folder){
     )";
 
     if (mysqli_query($link,$sql)) {
-        echo "<script> alert('New record created successfully'); </script>";
         return true;
+        echo "<script> alert('New record created successfully'); </script>";
     } else {
-        echo  '<script> alert("Error: on upload"); </script>';
         return false;
+        echo  '<script> alert("Error: on upload"); </script>';
     }
     mysqli_close($link);
 }
@@ -240,13 +247,12 @@ function CreateDirectoryAndAddFile(){
     if($rows) {
         $folderName = (int)$rows['id'] + 1;
     }
+    mysqli_close($link);
 
-    $filename = GetFileLocation();
+    $filename = "./DB/" . (string)$folderName;
     if (!file_exists($filename)) {
         mkdir("./DB/" . (string)$folderName);
-        exit;  
     } 
-    mysqli_close($link);
 }
 
 // delete folder from db.

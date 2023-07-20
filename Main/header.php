@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./Asset/css/iconoir.css">
 
     <link rel="stylesheet" href="./Asset/css/Bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./Asset/css/aos.css">
+    <link rel="stylesheet" href="./Asset/css/Bootstrap/aos.css">
 
     <link rel="stylesheet" href="./Asset/css/style.css">
 

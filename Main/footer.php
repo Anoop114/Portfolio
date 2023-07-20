@@ -22,8 +22,8 @@
     
 
     <script src="./Asset/js/jquery-3.6.4.js"></script>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/aos.js"></script>
+    <script src="./Asset/js/bootstrap.bundle.min.js"></script>
+    <script src="./Asset/js/aos.js"></script>
     <script src="./Asset/js/main.js"></script>
 
     <script>

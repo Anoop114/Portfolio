@@ -32,7 +32,7 @@ else{
         include("Main/blog.php");
     }else{
         //include("Main/blog.php");
-        include("Main/works.php");
+        include("Main/projects.php");
     }
 
     include("Main/footer.php");

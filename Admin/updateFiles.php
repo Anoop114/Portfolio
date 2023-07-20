@@ -10,25 +10,27 @@
         </div>
         <div class="form-control">
             <div class="table-responsive small">
-                <form method="POST" enctype="multipart/form-data">       
+                <form method="POST" enctype="multipart/form-data">
                     <div class="row gy-2 gx-3 align-items-center">
                         <div class="col-md-5">
-                            <input class="form-control me-2" type="file" name="Image_Data" id="formFile">
+                            <input class="form-control me-2" type="file" name="Image_Data" id="formFile" accept="image/png, image/gif, image/jpeg" />
                         </div>
                         <div class="col-md-3">
-                            <input class="form-check-input" type="checkbox" value="banner_Update" id="flexCheckChecked" name="UpdateBanner">
+                            <input class="form-check-input" type="checkbox" value="banner_Update" id="flexCheckChecked"
+                                name="UpdateBanner">
                             <label class="form-check-label" for="flexCheckChecked"> Banner </label>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-outline-success refresher" type="submit" name="Upload_File">Upload File</button>
+                            <button class="btn btn-outline-success refresher" type="submit" name="Upload_File">Upload
+                                File</button>
                         </div>
-                    </div>             
+                    </div>
                 </form>
-                <table class="table table-striped table-sm">
+                <table class="table table-striped table">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col" class="col-md-6">Folder Name</th>
+                            <th scope="col">Folder Name</th>
                             <th scope="col">File Name</th>
                         </tr>
                     </thead>
@@ -43,7 +45,13 @@
                         <tr>
                             <td class="align-middle f_id"><?php echo $data['id']; ?></td>
                             <td class="align-middle fD_name"><?php echo $data['folderName']; ?></td>
-                            <td class="align-middle f_name"><?php echo $data['fileName'];  ?></td>
+                            <td class="align-middle f_name">
+                                <div class="d-flex justify-content-between col-md-6">
+                                    <p class="copyClipBoard" style="display: none;">/DB/<?php echo $data['folderName']; ?>/<?php echo $data['fileName']; ?> </p>
+                                    <?php echo $data['fileName']; ?>
+                                    <button type="button" class="clipBoard"> <svg class="bi"> <use xlink:href="#file-earmark" /></svg> </button>
+                                </div>
+                            </td>
                             <td class="align-middle">
                                 <button type="button" class="btn btn-primary btn-sm view_Btn">
                                     <i class="bi bi-eye-fill"></i>
@@ -105,7 +113,7 @@
                         <input type="hidden" name="file_Name" id="delete_input_Name">
                         <button type="submit" class="btn btn-danger" name="Dlelete_file_DB"> DELETE File </button>
                     </form>
-                
+
                 </div>
             </div>
         </div>
@@ -114,44 +122,46 @@
 
 
 <script>
-    $(document).ready(function(){
-        $('.view_Btn').click(function(e){
+    $(document).ready(function () {
+        $('.view_Btn').click(function (e) {
             e.preventDefault();
 
-            var floder_id = $(this).closest('tr').find('.f_id').text(); 
+            var floder_id = $(this).closest('tr').find('.f_id').text();
 
             $.ajax({
                 type: "POST",
-                url:"./Admin/addBlogFiles.php",
-                data:{
-                    'checkView_btn' : true,
-                    'f_id' : floder_id,
+                url: "./Admin/addBlogFiles.php",
+                data: {
+                    'checkView_btn': true,
+                    'f_id': floder_id,
                 },
-                success: function(respond){
-                    $.each(respond, function(key,value){
-                        var folderPointer = './DB/'+value['folderName']+'/'+value['fileName'];
+                success: function (respond) {
+                    $.each(respond, function (key, value) {
+                        var folderPointer = './DB/' + value['folderName'] + '/' +
+                            value['fileName'];
                         $('#display_Img').attr('src', folderPointer);
                     });
                     $('#viewModal').modal('show');
                 }
             });
         });
-        
-        $('.delete_Btn').click(function(e){
+
+        $('.delete_Btn').click(function (e) {
             e.preventDefault();
-            
-            var floder_id = $(this).closest('tr').find('.f_id').text(); 
-            
+
+            var floder_id = $(this).closest('tr').find('.f_id').text();
+
             $.ajax({
                 type: "POST",
-                url:"./Admin/addBlogFiles.php",
-                data:{
-                    'checkView_btn' : true,
-                    'f_id' : floder_id,
+                url: "./Admin/addBlogFiles.php",
+                data: {
+                    'checkView_btn': true,
+                    'f_id': floder_id,
                 },
-                success: function(respond){
-                    $.each(respond, function(key,value){
-                        var folderPointer = './DB/'+value['folderName']+'/'+value['fileName'];
+                success: function (respond) {
+                    $.each(respond, function (key, value) {
+                        var folderPointer = './DB/' + value['folderName'] + '/' +
+                            value['fileName'];
                         $('#display_del_Img').attr('src', folderPointer);
                         $('#delete_input_id').val(value['id']);
                         $('#delete_input_Name').val(value['fileName']);
@@ -160,7 +170,19 @@
                 }
             });
         });
+
+        $('.clipBoard').click(function(e){
+            e.preventDefault();
+            var clipData = $(this).closest('tr').find('.copyClipBoard').text();
+            navigator.clipboard.writeText(clipData);
+        });
     });
+
+    // function copyClipBoard() {
+    //     var text = document.getElementById('copyClipBoard').innerHTML;
+    //     console.log(text);
+    //     // Alert the copied text
+    // }
 </script>
 
 <?php
@@ -186,17 +208,16 @@ if(isset($_POST['Dlelete_file_DB'])){
 // upload new image.
 if(isset($_POST['Upload_File'])){
 
-    $extension  = pathinfo( $_FILES["Image_Data"]["name"], PATHINFO_EXTENSION );
     $Upload_fileName = basename($_FILES["Image_Data"]["name"]);
     $tempname = $_FILES["Image_Data"]["tmp_name"];
     $fileLocation = "./DB/" .$data_Blog['id']."/";
     if(isset($_POST['UpdateBanner']))
     {
-        $ExtensionName = UploadFileInDB('BannerData.jpg',$extension,$tempname,$fileLocation);
+        $ExtensionName = UploadFileInDB('BannerData.jpg',$tempname,$fileLocation);
         if($ExtensionName){
-            echo "<script> alert('Somthing error on file upload.'); </script>";
+            echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
         }else{
-            echo "<script> alert('uplodad banner Success.'); </script>";
+            echo "<script> alert('Somthing error on file upload.'); </script>";
         }
     }
     else{        
@@ -204,25 +225,24 @@ if(isset($_POST['Upload_File'])){
         $filename = $Upload_fileName;
         $UploadToDB = InsertFileFolder($filename,$data_Blog['id']);
         if($UploadToDB){
-            UploadFileInDB($Upload_fileName,$extension,$tempname,$fileLocation);
+            $uploadInDBSuccess = UploadFileInDB($Upload_fileName,$tempname,$fileLocation);
+            if($uploadInDBSuccess){
+                echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
+            }else{
+                echo "<script> alert('file upload fail in local storage pls delete last entry from db and again upload.'); </script>";
+            }
         }else{
             echo "<script> alert('file upload fail in local storage pls delete last entry from db and again upload.'); </script>";
         }
     }
 }
 
-function UploadFileInDB($uploadeFileName,$extension,$tempname,$fileLoacation){
-    $allowTypes = array('jpg','png','jpeg','gif');
-    $filename = $uploadeFileName;
-    $folder = $fileLoacation. $filename;
-    if(in_array($extension, $allowTypes)){
-        if (move_uploaded_file($tempname, $folder)) {
-            return true;
-        } else {
-            return false;
-        }
-    }else {
-        return 'null';
+function UploadFileInDB($uploadeFileName,$tempname,$fileLoacation){
+    $folder = $fileLoacation. $uploadeFileName;
+    if (move_uploaded_file($tempname, $folder)) {
+        return true;
+    } else {
+        return false;
     }
 }
 
