@@ -55,12 +55,22 @@
 
     
     <section class="about-area">
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
 
-          <canvas id="unity-canvas" width=800 height=600 style="background: #1F1F20">
+          <canvas id="unity-canvas" width=900 height=400 style="background: #1F1F20">
           </canvas>
         </div>
+      </div> -->
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas" width=960 height=400 style="background: #1F1F20"></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
+        </div>        
+      </div>
     </section>
     </div>
   </main>
@@ -73,7 +83,7 @@
       meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
       document.getElementsByTagName('head')[0].appendChild(meta);
     }
-
+    
     createUnityInstance(document.querySelector("#unity-canvas"), {
       dataUrl: "Build/Build.data",
       frameworkUrl: "Build/Build.framework.js",
@@ -83,7 +93,7 @@
       productName: "WEB",
       productVersion: "1.0",
       matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-      devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      devicePixelRatio: 10, // Uncomment this to override low DPI rendering on high DPI displays.
     });
   </script>
 

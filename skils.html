@@ -17,11 +17,16 @@
         <link rel="stylesheet" href="css/aos.css">
     
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
 <body>
 
     <main class="main-homepage">
-
+        <style>
+            .hide{
+                display: none;
+            }
+        </style>
         <!-- Header -->
         <header class="header-area">
             <div class="container">
@@ -54,7 +59,7 @@
         <!-- Service -->
         <section class="service-area">
             <div class="container">
-                <h1 class="section-heading" data-aos="fade-up"><img src="images/star-2.png" alt="Star"> My Offerings <img src="images/star-2.png" alt="Star"></h1>
+                <h1 class="section-heading" data-aos="fade-up"><img src="images/star-2.png" alt="Star"> My Skills <img src="images/star-2.png" alt="Star"></h1>
                 
                 <div class="row">
 
@@ -64,20 +69,34 @@
                             <div class="service-sidebar-inner shadow-box">
                                 <ul>
                                     <li>
-                                        <i class="iconoir-dev-mode-phone icon"></i>
-                                        SYSTEM PROGRAMMER
+                                        <a href="#" class="theme-btn d-flex align-items-center justify-content-between" style="width: 100%;">
+                                            <i class="iconoir-dev-mode-phone icon"></i>
+                                            LEVEL DESIGNER
+                                        </a>
                                     </li>
                                     <li>
-                                        <i class="iconoir-3d-bridge icon"></i>
-                                        LEVEL DESIGNER
+                                        <button 
+                                            type="button" 
+                                            id="myBox" 
+                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between" 
+                                            style="width: 100%;"
+                                            data-show=".darwin"
+                                        >
+                                            <i class="iconoir-3d-bridge icon"></i>
+                                            LEVEL DESIGNER
+                                        </button>
                                     </li>
                                     <li>
-                                        <i class="iconoir-nintendo-switch icon"></i>
-                                        GAME TESTER
+                                        <a href="#" class="theme-btn d-flex align-items-center justify-content-between" style="width: 100%;">
+                                            <i class="iconoir-nintendo-switch icon"></i>
+                                            LEVEL DESIGNER
+                                        </a>
                                     </li>
                                     <li>
-                                        <i class="iconoir-square-cursor icon"></i>
-                                        UI/UX PROGRAMMER
+                                        <a href="#" class="theme-btn d-flex align-items-center justify-content-between" style="width: 100%;">
+                                            <i class="iconoir-square-cursor icon"></i>
+                                            LEVEL DESIGNER
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -91,6 +110,9 @@
                         <div class="service-content-wrap" data-aos="zoom-in">
                             <div class="service-content-inner shadow-box">
                                 <div class="service-items">
+                                    <div class="darwin hide">
+                                        <p>Darwin Content here</p>
+                                    </div>
                                     <div class="service-item">
                                         <h3>System Programmer</h3>
                                         <p>My areas of expertise include creating and improving the game architecture, game systems, and game engines that power many game genres. I collaborate extensively with game designers to fully grasp their goals and specifications to design unique game systems that improve gameplay.</p>
@@ -198,6 +220,13 @@
 
     </main>
     
+    <script>
+        $(document).on('click', '#myBox', function() {
+            var show = $(this).data('show');
+            $(show).removeClass("hide").siblings().addClass("hide");
+        });
+
+    </script>
 
     <script src="js/jquery-3.6.4.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
