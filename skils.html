@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Anoop Kumar Sharma</title>
-    
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    
-        <link rel="stylesheet" href="css/iconoir.css">
-    
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/aos.css">
-    
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anoop Kumar Sharma</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/iconoir.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/aos.css"> -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
 <body>
 
     <main class="main-homepage">
         <style>
-            .hide{
+            .hide {
                 display: none;
             }
         </style>
@@ -59,44 +62,68 @@
         <!-- Service -->
         <section class="service-area">
             <div class="container">
-                <h1 class="section-heading" data-aos="fade-up"><img src="images/star-2.png" alt="Star"> My Skills <img src="images/star-2.png" alt="Star"></h1>
-                
+                <h1 class="section-heading" data-aos="fade-up"><img src="images/star-2.png" alt="Star"> My Skills <img
+                        src="images/star-2.png" alt="Star"></h1>
+
                 <div class="row">
 
                     <!-- Sidebar -->
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="max-height: 600px; min-height: 550px;">
                         <div class="service-sidebar" data-aos="fade-right">
-                            <div class="service-sidebar-inner shadow-box">
+                            <div class="service-sidebar-inner shadow-box" style="padding-top: 50px; padding-left: 30px;">
+                                <div class="banner shadow-box" style="margin: 20px;">
+                                    <div class="marquee">
+                                        <div>
+                                            <span>
+                                                <img src="fonts/star1.svg" alt="Star"> Click Skills button to explore.
+                                                <img src="fonts/star1.svg" alt="Star"> Click Skills button to explore.
+                                                <img src="fonts/star1.svg" alt="Star"> Click Skills button to explore.
+                                                <img src="fonts/star1.svg" alt="Star"> Click Skills button to explore.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <ul>
                                     <li>
-                                        <a href="#" class="theme-btn d-flex align-items-center justify-content-between" style="width: 100%;">
+                                        <button type="button" id="myBox"
+                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between"
+                                            style="width: 100%;" data-show=".Pskill">
                                             <i class="iconoir-dev-mode-phone icon"></i>
-                                            LEVEL DESIGNER
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button 
-                                            type="button" 
-                                            id="myBox" 
-                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between" 
-                                            style="width: 100%;"
-                                            data-show=".darwin"
-                                        >
-                                            <i class="iconoir-3d-bridge icon"></i>
-                                            LEVEL DESIGNER
+                                            Programming skills
                                         </button>
                                     </li>
                                     <li>
-                                        <a href="#" class="theme-btn d-flex align-items-center justify-content-between" style="width: 100%;">
-                                            <i class="iconoir-nintendo-switch icon"></i>
-                                            LEVEL DESIGNER
-                                        </a>
+                                        <button type="button" id="myBox"
+                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between"
+                                            style="width: 100%;" data-show=".GDskill">
+                                            <i class="iconoir-3d-bridge icon"></i>
+                                            Game design skills
+                                        </button>
                                     </li>
                                     <li>
-                                        <a href="#" class="theme-btn d-flex align-items-center justify-content-between" style="width: 100%;">
-                                            <i class="iconoir-square-cursor icon"></i>
-                                            LEVEL DESIGNER
-                                        </a>
+                                        <button type="button" id="myBox"
+                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between"
+                                            style="width: 100%;" data-show=".MDskill">
+                                            <i class="iconoir-3d-pt-box icon"></i>
+                                            3D modeling and animation
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" id="myBox"
+                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between"
+                                            style="width: 100%;" data-show=".Askill">
+                                            <i class="iconoir-gamepad icon"></i>
+                                            2D art skills
+                                        </button>
+                                    </li>
+                                    <li>
+
+                                        <button type="button" id="myBox"
+                                            class="btn btn-secondary rounded-pill d-flex align-items-center justify-content-between"
+                                            style="width: 100%;" data-show=".MRskill">
+                                            <i class="iconoir-vr-symbol icon"></i>
+                                            AR, VR, and MR
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -105,29 +132,377 @@
 
                     <!-- Content -->
                     <div class="col-md-8">
-                        <h1 class="section-heading" data-aos="fade-up"><img src="images/star-2.png" alt="Star"> My Offerings <img src="images/star-2.png" alt="Star"></h1>
+                        <h1 class="section-heading" data-aos="fade-up"><img src="images/star-2.png" alt="Star"> My Skills <img src="images/star-2.png" alt="Star"></h1>
 
                         <div class="service-content-wrap" data-aos="zoom-in">
                             <div class="service-content-inner shadow-box">
                                 <div class="service-items">
-                                    <div class="darwin hide">
-                                        <p>Darwin Content here</p>
+                                    <div class="Pskill">
+                                        <div class="service-item" style="width: 100%;">
+                                            <h3>Programming skills</h3>
+                                            <p>
+                                                I have a very good understanding of programming principles and
+                                                techniques. I am proficient in the C# programming language, which is the
+                                                language used by Unity. I can use C# to create efficient and reusable
+                                                code, which is essential for creating large and complex games.
+
+                                                <br><br>
+                                                Some of the programming skills I have include:
+                                                <br><br>
+                                                <b> • Object-oriented programming (OOP)</b> <br>
+                                                I have a strong understanding of OOP concepts, such as classes,
+                                                objects, inheritance, and polymorphism. I use these concepts to
+                                                create reusable and modular code that is easy to maintain and
+                                                extend.
+
+                                                <br><br> <b> • C#</b> <br>
+                                                I am proficient in the C# programming language. I am familiar with
+                                                the syntax, semantics, and libraries of C#, and I can use it to
+                                                create efficient and effective code.
+
+                                                <br><br> <b> • Game mechanics</b> <br>
+                                                I have a deep understanding of game mechanics. I know how to create
+                                                the rules and interactions that govern how a game works. I can also
+                                                use game mechanics to create fun and engaging gameplay experiences.
+
+                                                <br><br> <b> • Algorithms</b> <br>
+                                                I am familiar with a variety of algorithms, such as
+                                                sorting algorithms, searching algorithms, and graph algorithms. I
+                                                can use these algorithms to solve problems in game development, such
+                                                as pathfinding and collision detection.
+                                                <br><br> <b> • Data structures</b> <br>
+                                                I am familiar with a variety of data structures,
+                                                such as arrays, lists, queues, and stacks. I can use these data
+                                                structures to store and manipulate game data efficiently.
+
+                                                <br><br> <b> • Debugging</b> <br>
+                                                I am an experienced debugger. I can use a variety of
+                                                debugging tools to find and fix errors in my code. I am also
+                                                familiar with common debugging techniques, such as print statements,
+                                                breakpoints, and logging.
+
+                                                <br><br> <b> • Profiling</b> <br>
+                                                I am familiar with the process of profiling code. I can
+                                                use profiling tools to measure the performance of my code and
+                                                identify performance bottlenecks. I can then use this information to
+                                                optimize my code and improve the performance of my games.
+
+                                                <br><br> <b> • Version control</b> <br>
+                                                I am an experienced user of version control
+                                                systems. I use version control to track changes to my code and
+                                                assets. This helps me to prevent errors and facilitate collaboration
+                                                with other developers.
+
+                                                <br><br>
+                                                I am excited to continue my career as a Unity game developer. I am
+                                                passionate about creating games that people enjoy playing, and I am
+                                                confident that I have the skills and knowledge to make a significant
+                                                contribution to the game development industry.
+
+                                                <br><br>
+                                                Here are some additional programming skills that I am working on
+                                                developing:
+                                                <br><br>
+
+                                                <b>• Machine learning: </b>
+                                                I am learning how to use machine learning to create
+                                                games that are more intelligent and engaging.
+
+                                                <br><b>• Virtual reality: </b>
+                                                I am learning how to create games that use virtual
+                                                reality, which is a new and exciting technology.
+
+                                                <br><b>• Blockchain: </b>
+                                                I am learning how to use blockchain to create games that are
+                                                more secure and transparent.
+
+                                                <br><br>
+                                                I am confident that by continuing to develop my programming skills, I
+                                                will be able to create even better games in the future.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="service-item">
-                                        <h3>System Programmer</h3>
-                                        <p>My areas of expertise include creating and improving the game architecture, game systems, and game engines that power many game genres. I collaborate extensively with game designers to fully grasp their goals and specifications to design unique game systems that improve gameplay.</p>
+                                    <div class="GDskill hide">
+                                        <div class="service-item" style="width: 100%;">
+                                            <h3>Game design skills</h3>
+                                            <p>
+                                                As a Unity game developer, I have a strong understanding of game design
+                                                principles. I know how to create games that are fun, engaging, and
+                                                challenging. I am also familiar with the different types of games that
+                                                can be created with Unity.
+                                                <br><br>
+                                                Some of the game design skills I have include:
+                                                <br><br>
+                                                <b> • Creativity</b><br>
+                                                I am able to come up with new and innovative ideas for
+                                                games. I am also able to take existing ideas and improve them.
+                                                <br><br>
+
+                                                <b> • Problem-solving:</b><br>
+                                                I am able to identify and solve problems in game
+                                                design. I am also able to think outside the box and come up with
+                                                creative solutions.
+                                                <br><br>
+
+                                                <b> • Communication</b><br>
+                                                I am able to communicate my ideas clearly and effectively
+                                                to others. I am also able to listen to feedback and incorporate it into
+                                                my designs.
+                                                <br><br>
+
+                                                <b> • Collaboration</b><br>
+                                                I am able to work effectively with others to create
+                                                games. I am also able to share my ideas and learn from others.
+
+                                                <br><br>
+
+                                                <b> • Testing</b><br>
+                                                I am able to test my games and identify any problems. I am also
+                                                able to make changes to my games based on feedback from testers.
+
+                                                <br><br>
+                                                Here are some additional game design skills that I am working on
+                                                developing:
+                                                <br><br>
+
+                                                <b>• Story telling:</b> I am learning how to create engaging and
+                                                immersive stories
+                                                in my games.
+                                                <br>
+
+                                                <b> • Level design:</b> I am learning how to create levels that are
+                                                challenging
+                                                and fun to play.
+                                                <br>
+
+                                                <b> • Direction:</b> I am learning how to create games with a consistent
+                                                and
+                                                appealing visual style.
+                                                <br>
+
+                                                <b> • Audio design:</b> I am learning how to create games with sound
+                                                effects and
+                                                music that enhance the gameplay experience.
+                                                <br><br>
+                                                I am confident that by continuing to develop my game design skills, I
+                                                will be able to create even better games in the future.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="service-item">
-                                        <h3>Level Designer</h3>
-                                        <p>Whether it's developing levels for a certain genre or incorporating game mechanics into level design, the goal of my work is to create a fun and immersive gaming experience that gamers appreciate.</p>
+                                    <div class="MDskill hide">
+                                        <div class="service-item" style="width: 100%;">
+                                            <h3>3D modeling and animation skills</h3>
+                                            <p>
+
+                                                As a Unity game developer, I have a basic understanding of 3D modeling
+                                                and animation. I know how to create simple 3D models and animations, but
+                                                I am not proficient in these skills. I am working on improving my 3D
+                                                modeling and animation skills, but I am still weak in these areas.
+                                                <br><br>
+                                                Some of the 3D modeling and animation skills I have include:
+                                                <br><br>
+
+                                                <b> • Basic knowledge of 3D modeling software: </b>
+                                                <br> I am familiar with the basic
+                                                tools and techniques of 3D modeling software, such as Blender.
+                                                I can use that software to create simple 3D models, such as cubes,
+                                                spheres, and cylinders.
+
+                                                <br><br>
+                                                <b> • knowledge of 3D animation software:</b>
+                                                <br>I am familiar with the basic
+                                                tools and techniques of 3D animation software, such as Blender and Maya.
+                                                I can use these software to create simple 3D animations, such as
+                                                walking, running, and jumping.
+
+                                                <br><br>
+                                                <b> • Understanding of 3D modeling and animation principles:</b>
+                                                <br>I have a basic understanding of the principles of 3D modeling and
+                                                animation, such as
+                                                perspective, lighting, and rigging. I can use this knowledge to create
+                                                3D models and animations that are visually appealing and functional.
+
+                                                <br><br>
+                                                I am confident that my 3D modeling and animation skills will improve
+                                                over time. I am a hard worker and I am always willing to learn new
+                                                things. I am also a team player and I am always willing to help others.
+
+                                                <br><br>
+                                                Here are some additional 3D modeling and animation skills that I am
+                                                working on developing:
+                                                <br><br>
+
+                                                <b> • Advanced knowledge of 3D modeling software:</b>
+                                                I am learning how to use 3D
+                                                modeling software to create more complex 3D models. I am also learning
+                                                how to use 3D modeling software to create 3D models that are more
+                                                realistic and detailed.
+
+                                                <br>
+                                                <b> • Advanced knowledge of 3D animation software: </b>
+                                                I am learning how to use 3D animation software to create more complex 3D
+                                                animations. I am also
+                                                learning how to use 3D animation software to create 3D animations that
+                                                are more fluid and realistic.
+                                                <br>
+                                                <b> • Expertise in 3D modeling and animation principles: </b>
+                                                I am learning the ins and outs of 3D modeling and animation principles.
+                                                I am also learning how
+                                                to apply these principles to create 3D models and animations that are
+                                                visually appealing and functional.
+
+                                                <br><br>
+                                                I am confident that by continuing to develop my 3D modeling and
+                                                animation skills, I will be able to create even better games in the
+                                                future.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="service-item">
-                                        <h3>Game Tester</h3>
-                                        <p>I apply my comprehensive understanding of the development of games, the mechanics, and systems to recognise bugs, glitches, and other issues which might interfere with gameplay.</p>
+                                    <div class="Askill hide">
+                                        <div class="service-item" style="width: 100%;">
+                                            <h3>2D art skills</h3>
+                                            <p>
+                                                As a Unity game developer, I have a strong understanding of 2D art
+                                                principles and techniques. I am proficient in a variety of 2D art
+                                                software, such as Photoshop, Illustrator, and Aseprite. I can use these
+                                                software to create high-quality 2D art assets, such as sprites,
+                                                backgrounds, and animations.
+
+                                                <br><br>
+
+                                                Some of the 2D art skills I have include:
+
+                                                <br><br>
+
+                                                <b> • Drawing: </b><br>
+                                                I am proficient in traditional drawing techniques, such as
+                                                pencil sketching and inking. I can also use digital drawing software to
+                                                create high-quality 2D art assets.
+
+                                                <br><br> <b> • Coloring: </b> <br>
+                                                I have a good understanding of color theory and I can use this
+                                                knowledge to create visually appealing 2D art assets. I am also
+                                                proficient in using digital coloring software, such as Photoshop and
+                                                Illustrator.
+
+                                                <br><br> <b> • Composition: </b> <br>
+                                                I have a good understanding of 2D composition principles
+                                                and I can use this knowledge to create 2D art assets that are visually
+                                                appealing and engaging.
+
+                                                <br><br> <b> • Animation: </b> <br>
+                                                I am proficient in the principles of 2D animation and I can
+                                                use this knowledge to create smooth and fluid 2D animations. I am also
+                                                proficient in using digital animation software, such as Flash and Spine.
+                                                Spritesheeting: I am proficient in the process of creating spritesheets
+                                                and I can use this knowledge to create efficient and reusable 2D art
+                                                assets.
+
+                                                <br><br>
+                                                I am excited to continue my career as a Unity game developer. I am
+                                                passionate about creating games that people enjoy playing, and I am
+                                                confident that I have the skills and knowledge to make a significant
+                                                contribution to the game development industry.
+
+                                                <br><br>
+                                                Here are some additional 2D art skills that I am working on developing:
+                                                <br><br>
+
+                                                <b> • Pixel art: </b>
+                                                I am learning how to create pixel art, which is a unique and
+                                                challenging art style.
+                                                <br><b> • Live2D: </b>
+                                                I am learning how to create Live2D animations, which are
+                                                high-quality 2D animations that can be used in real-time.
+                                                <br><b> • UI/UX design: </b>
+                                                I am learning how to design user interfaces and user
+                                                experiences, which are essential for creating games that are easy to use
+                                                and enjoyable to play.
+
+                                                <br><br>
+                                                I am confident that by continuing to develop my 2D art skills, I will be
+                                                able to create even better games in the future.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="service-item">
-                                        <h3>UI/UX Programmer</h3>
-                                        <p>As a Ul/UX programmer, I working together closely with game developers and artists in order to understand what they want and produce customized UI/UX designs that match their specific requirements.</p>
+                                    <div class="MRskill hide">
+                                        <div class="service-item" style="width: 100%;">
+                                            <h3>Experience with AR, VR, and MR</h3>
+                                            <p>
+                                                I have a good understanding of augmented reality (AR), virtual reality
+                                                (VR), and mixed reality (MR) technologies. I have experience developing
+                                                AR, VR, and MR games using the Unity game engine. I am proficient in the
+                                                use of AR, VR, and MR SDKs, such as ARKit, ARCore, and Vuforia. I am
+                                                also familiar with the different types of AR, VR, and MR devices, such
+                                                as smartphones, tablets, and headsets.
+
+                                                <br><br>
+                                                Here are some of the AR, VR, and MR skills I have:
+                                                <br><br>
+
+                                                <b> • AR development: </b><br>
+                                                I am proficient in developing AR games and applications.
+                                                I have experience using the Unity game engine to create AR experiences
+                                                that overlay digital content on the real world.
+
+                                                <br><br><b> • VR development: </b><br>
+                                                I am proficient in developing VR games and applications.
+                                                I have experience using the Unity game engine to create VR experiences
+                                                that immerse users in a virtual world.
+
+                                                <br><br><b> • MR development: </b><br>
+                                                I am proficient in developing MR games and applications.
+                                                I have experience using the Unity game engine to create MR experiences
+                                                that blend the real and virtual worlds.
+
+                                                <br><br><b> • Experience with Unity: </b><br>
+                                                I am proficient in using Unity to create AR, VR,
+                                                and MR experiences. I know how to use the Unity AR Foundation, VR
+                                                Toolkit, and MRTK packages to create AR, VR, and MR experiences.
+
+                                                <br><br><b> • Experience with different AR, VR, and MR hardware:
+                                                </b><br>
+                                                I have experience with different AR, VR, and MR hardware, such as the
+                                                HoloLens, Magic
+                                                Leap, and Oculus Quest. I know how to optimize AR, VR, and MR
+                                                experiences for different hardware platforms.
+
+                                                <br><br><b> • SDK knowledge: </b><br>
+                                                I am familiar with the different AR, VR, and MR SDKs,
+                                                such as ARKit, ARCore, and Vuforia. I know how to use these SDKs to
+                                                develop AR, VR, and MR experiences.
+
+                                                <br><br>
+                                                I am excited to continue my career as a Unity game developer. I am
+                                                passionate about creating games and applications that use AR, VR, and MR
+                                                technologies. I am confident that I have the skills and knowledge to
+                                                make a significant contribution to the AR, VR, and MR industries.
+
+                                                <br><br>
+                                                Here are some additional AR, VR, and MR skills that I am working on
+                                                developing:
+                                                <br></b>
+
+                                                <br><b>• 3D scanning: </b>
+                                                I am learning how to use 3D scanning technology to create
+                                                3D models of real-world objects. This knowledge can be used to create
+                                                more realistic and immersive AR, VR, and MR experiences.
+                                                <br><b>• Spatial computing: </b>
+                                                I am learning how to use spatial computing technology
+                                                to track the position and orientation of real-world objects. This
+                                                knowledge can be used to create more interactive and engaging AR, VR,
+                                                and MR experiences.
+                                                <br><b>• Natural language processing: </b>
+                                                I am learning how to use natural language
+                                                processing technology to understand and respond to natural language
+                                                commands. This knowledge can be used to create more intuitive and
+                                                user-friendly AR, VR, and MR experiences.
+
+                                                <br><br>
+                                                I am confident that by continuing to develop my AR, VR, and MR skills, I
+                                                will be able to create even better games and applications in the future.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -157,11 +532,11 @@
                                             <h4>Stay with me</h4>
                                             <h1>Profiles</h1>
                                         </div>
-    
+
                                         <a href="./contact.html" class="about-btn">
                                             <img src="fonts/icon.svg" alt="Button">
                                         </a>
-    
+
                                     </div>
                                 </div>
                             </div>
@@ -188,11 +563,11 @@
                                             <h4>more about me</h4>
                                             <h1>Credentials</h1>
                                         </div>
-    
+
                                         <a href="./aboutFull.html" class="about-btn">
                                             <img src="fonts/icon.svg" alt="Button">
                                         </a>
-    
+
                                     </div>
                                 </div>
                             </div>
@@ -219,13 +594,12 @@
         </footer>
 
     </main>
-    
+
     <script>
-        $(document).on('click', '#myBox', function() {
+        $(document).on('click', '#myBox', function () {
             var show = $(this).data('show');
             $(show).removeClass("hide").siblings().addClass("hide");
         });
-
     </script>
 
     <script src="js/jquery-3.6.4.js"></script>
@@ -233,4 +607,5 @@
     <script src="js/aos.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
