@@ -19,6 +19,25 @@ function GetBlogData() {
     mysqli_close($link);
     return $result;
 }
+
+//Get all BlogData as match
+function GetBlogByData($data){
+    if($data == ''){
+        return GetBlogData();
+    }else{
+        $link = mysqli_connect("localhost", "root", "", "my_blogs");
+
+        $query = "SELECT * FROM `blogdata` WHERE 
+                    `blog_Data` LIKE '%$data%' OR
+                    `blog_name` LIKE '%$data%'
+                    ORDER BY `id` DESC";
+        $result = mysqli_query($link, $query);
+        
+        mysqli_close($link);
+        return $result;
+    }
+}
+
 //get blog Data by ID
 function GetBlogDataByID($ID) {
     $link = mysqli_connect("localhost", "root", "", "my_blogs");
