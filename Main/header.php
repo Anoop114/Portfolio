@@ -29,8 +29,8 @@
         <header class="header-area">
             <div class="container">
                 <div class="gx-row d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="logo">
-                        <img src="./Asset/fonts/logo.svg" alt="Logo">
+                    <a href="#" class="logo">
+                        <img src="./Asset/images/logo.jpeg" alt="Logo">
                     </a>
 
                     <nav class="navbar">
@@ -40,7 +40,7 @@
                             <li><a href="?p=work">Works</a></li>
                             <li><a href="?p=cont">Contact</a></li>
                         </ul>
-                        <a href="#" class="theme-btn">Let's talk</a>
+                        <a href="?p=cont" class="theme-btn">Let's talk</a>
                     </nav>
 
                     <a href="?p=cont" class="theme-btn">Let's talk</a>
@@ -53,4 +53,5 @@
                 </div>
             </div>
         </header>
+
 

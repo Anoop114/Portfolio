@@ -1,9 +1,9 @@
 <!-- Footer -->
 <footer class="footer-area">
     <div class="footer-content text-center">
-        <!-- <a href="./index.html" class="logo">
-                    <img src="images/logo_A.png" alt="Logo">
-                </a> -->
+        <a href="#" class="logo">
+            <img src="./Asset/images/logo_A.png" alt="Logo">
+        </a>
         <!-- <ul class="footer-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -25,8 +25,8 @@
 <script src="./Asset/js/aos.js"></script>
 <script src="./Asset/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
-        integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous">
-    </script>
+    integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous">
+</script>
 
 <script>
     var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
