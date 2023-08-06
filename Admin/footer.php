@@ -1,6 +1,6 @@
     </div>
-  </div>
-  <!-- main table data end -->
+    </div>
+    <!-- main table data end -->
     <script src="./Asset/js/jquery-3.6.4.js"></script>
     <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
     <script src="./Asset/js/main.js"></script>
@@ -8,14 +8,15 @@
     <script src="./Asset/js/aos.js"></script>
 
 
-  <!-- <script src="./Admin/assets/dist/js/bootstrap.bundle.min.js"></script> -->
-  <script src="./Asset/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script>
-  <script src="./Asset/js/Admin js/dashboard.js"></script>
-  
+    <!-- <script src="./Admin/assets/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="./Asset/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
+        integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous">
+    </script>
+    <script src="./Asset/js/Admin js/dashboard.js"></script>
 
-  <script>
-        
+
+    <script>
         var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         tinymce.init({
@@ -74,11 +75,11 @@
                     value: 'class-name'
                 }
             ],
-            
+
             templates: [{
-                title: 'New Table',
-                description: 'creates a new table',
-                content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
+                    title: 'New Table',
+                    description: 'creates a new table',
+                    content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
                 },
                 {
                     title: 'Starting my story',
@@ -100,7 +101,7 @@
             skin: useDarkMode ? 'oxide-dark' : 'oxide',
             content_css: useDarkMode ? 'dark' : 'default',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-            
+
             importcss_append: true,
             image_caption: true,
             statusbar: false,
@@ -136,5 +137,6 @@
     </script>
 
 
-</body>
-</html>
+    </body>
+
+    </html>

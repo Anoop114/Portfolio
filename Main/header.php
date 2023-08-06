@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="./Asset/css/Bootstrap/aos.css">
 
     <link rel="stylesheet" href="./Asset/css/style.css">
-
+    
     <script src="https://cdn.tiny.cloud/1/w3r0r9zl5y3j624ieuxvyfe8hfvittfeqv5o8o08mjzh4ize/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -37,12 +38,12 @@
                             <li><a href="#">Home</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="?p=work">Works</a></li>
-                            <li><a href="">Contact</a></li>
+                            <li><a href="?p=cont">Contact</a></li>
                         </ul>
                         <a href="#" class="theme-btn">Let's talk</a>
                     </nav>
 
-                    <a href="#" class="theme-btn">Let's talk</a>
+                    <a href="?p=cont" class="theme-btn">Let's talk</a>
 
                     <div class="show-menu">
                         <span></span>

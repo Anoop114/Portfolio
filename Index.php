@@ -30,7 +30,10 @@ else{
     include("Main/header.php");
     if($page == "Showblog"){
         include("Main/blog.php");
-    }else{
+    }else if($page == "cont"){
+        include("Main/contact.php");
+    }
+    else{
         //include("Main/blog.php");
         include("Main/projects.php");
     }
