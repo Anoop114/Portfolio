@@ -1,3 +1,32 @@
+<!-- Header -->
+<header class="header-area">
+    <div class="container">
+        <div class="gx-row d-flex align-items-center justify-content-between">
+            <a href="https://anoop114.github.io/Portfolio/" class="logo">
+                <img src="./Asset/images/logo.jpeg" alt="Logo">
+            </a>
+
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><a href="https://anoop114.github.io/Portfolio/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="?p=work">Works</a></li>
+                    <li class="active"><a href="?p=cont">Contact</a></li>
+                </ul>
+                <a href="?p=cont" class="theme-btn">Let's talk</a>
+            </nav>
+
+            <a href="?p=cont" class="theme-btn">Let's talk</a>
+
+            <div class="show-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
+
 <!-- Contact -->
 <section class="contact-area">
     <div class="container">
@@ -41,10 +70,8 @@
                 <h3 data-aos="fade-up">Social Info</h3>
                 <ul class="social-links d-flex align-center" data-aos="zoom-in">
                     <li>
-                        <a class="shadow-box" href="https://github.com/Anoop114"><i
-                                class="iconoir-github"></i></a></li>
-                    <li><a class="shadow-box"
-                            href="https://www.linkedin.com/in/anoop-kumar-sharma-716906226/"><i
+                        <a class="shadow-box" href="https://github.com/Anoop114"><i class="iconoir-github"></i></a></li>
+                    <li><a class="shadow-box" href="https://www.linkedin.com/in/anoop-kumar-sharma-716906226/"><i
                                 class="iconoir-linkedin"></i></a></li>
                 </ul>
             </div>
@@ -80,8 +107,8 @@
                             <textarea name="message" id="message" placeholder="Your Message *" required></textarea>
                         </div>
                         <div class="input-group">
-                            <button class="theme-btn submit-btn"
-                            id="submit_btn" name="submit" type="submit" >Send Message</button>
+                            <button class="theme-btn submit-btn" id="submit_btn" name="submit" type="submit">Send
+                                Message</button>
                         </div>
                     </form>
                 </div>
@@ -92,15 +119,16 @@
 </section>
 
 <script>
-    $(function(){
-        $('form').on('submit',function(e){
-            e.preventDefault();4
+    $(function () {
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            4
             $('#wait').show();
             $("#submit_btn").prop('disabled', true);
             var name = $("#full_name").val();
             var eml = $("#email").val();
-            var sub= $("#subject").val();
-            var msg = $("#message").val();            
+            var sub = $("#subject").val();
+            var msg = $("#message").val();
             $.ajax({
                 type: 'POST',
                 url: './Main/mailSend.php',
@@ -111,15 +139,15 @@
                     'subject': sub,
                     'message': msg,
                 },
-                success:function(data){
+                success: function (data) {
                     $('#wait').hide();
-                    if(data != ""){
+                    if (data != "") {
                         $('#success').show();
                         $("#full_name").val("");
                         $("#email").val("");
                         $("#subject").val("");
                         $("#message").val("");
-                    }else{
+                    } else {
                         $('#fail').show();
                     }
                     $("#submit_btn").prop('disabled', false);
@@ -143,7 +171,7 @@
     //                 if(respond == "pass"){
     //                     $('#success').show();
     //                 }else{
-                        
+
     //                 }
     //             }
     //         });

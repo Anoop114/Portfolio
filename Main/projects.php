@@ -7,6 +7,35 @@
     }
 ?>
 
+
+<!-- Header -->
+<header class="header-area">
+    <div class="container">
+        <div class="gx-row d-flex align-items-center justify-content-between">
+            <a href="https://anoop114.github.io/Portfolio/" class="logo">
+                <img src="./Asset/images/logo.jpeg" alt="Logo">
+            </a>
+
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><a href="https://anoop114.github.io/Portfolio/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="active"><a href="?p=work">Works</a></li>
+                    <li><a href="?p=cont">Contact</a></li>
+                </ul>
+                <a href="?p=cont" class="theme-btn">Let's talk</a>
+            </nav>
+
+            <a href="?p=cont" class="theme-btn">Let's talk</a>
+
+            <div class="show-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
 <!-- Projects -->
 <section class="projects-area">
     <div class="container">
@@ -62,12 +91,12 @@
                             }
                         }else{
                             ?>
-                    <div class="container">
-                        <div class="project-info" style="text-align: center;">
-                            <h1>There is nothing that you are searching. <br> Try to search other things.</h1>
-                        </div>
-                    </div>
-                            <?php
+            <div class="container">
+                <div class="project-info" style="text-align: center;">
+                    <h1>There is nothing that you are searching. <br> Try to search other things.</h1>
+                </div>
+            </div>
+            <?php
                         }
                     ?>
         </div>

@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer class="footer-area">
     <div class="footer-content text-center">
-        <a href="#" class="logo">
+        <a href="https://anoop114.github.io/Portfolio/" class="logo">
             <img src="./Asset/images/logo_A.png" alt="Logo">
         </a>
         <!-- <ul class="footer-menu">
