@@ -18,7 +18,7 @@
 
             <a href="?p=cont" class="theme-btn">Let's talk</a>
 
-            <div class="show-menu">
+            <div onclick="myFun()" class="show-menu" id="navCloser">
                 <span></span>
                 <span></span>
                 <span></span>
