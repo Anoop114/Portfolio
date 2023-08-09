@@ -1,17 +1,21 @@
 <?php
-
-//$link = mysqli_connect("localhost", "root", "", "my_blogs");
-
-if (mysqli_connect_errno()) {
+function GetBlogDataDB(){
     
-    print_r(mysqli_connect_error());
-    exit();
-    
+    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    // $link = mysqli_connect("sql212.infinityfree.com", "if0_34732535", "9876543210Anoop", "if0_34732535_blogdata");
+    if (mysqli_connect_errno()) {
+        
+        print_r(mysqli_connect_error());
+        exit();
+        
+    }else{
+        return $link;
+    }
 }
 
 //page index display all blog data
 function GetBlogData() {
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $query = "SELECT * FROM `blogdata` ORDER BY id DESC";
     $result = mysqli_query($link, $query);
@@ -25,7 +29,7 @@ function GetBlogByData($data){
     if($data == ''){
         return GetBlogData();
     }else{
-        $link = mysqli_connect("localhost", "root", "", "my_blogs");
+        $link = GetBlogDataDB();
 
         $query = "SELECT * FROM `blogdata` WHERE 
                     `blog_Data` LIKE '%$data%' OR
@@ -40,7 +44,7 @@ function GetBlogByData($data){
 
 //get blog Data by ID
 function GetBlogDataByID($ID) {
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $query;
     if($ID == ''){
@@ -57,7 +61,7 @@ function GetBlogDataByID($ID) {
 
 // upload blog data
 function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$extension){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $query = "SELECT `id` FROM `blogdata` ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($link, $query);
@@ -99,7 +103,7 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$extension){
 
 //Updata created Blog Title
 function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $sql = "UPDATE blogdata SET 
         blog_name = '$blogNmae',
@@ -121,7 +125,7 @@ function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName){
 //delete blog
 
 function DeleteBlog($id){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
     $sql = "DELETE FROM `blogdata` WHERE `id`= ".$id." ";
     if (mysqli_query($link, $sql)) {
         echo "<script> alert('Record Delete successfully.'); </script>";
@@ -138,7 +142,7 @@ function DeleteBlog($id){
 
 //update folder file data
 function UpdateFileFolder($ID,$file_Name,$folder){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
     
     $sql = "UPDATE filedata SET 
         `folderName` = '$folder',
@@ -155,7 +159,7 @@ function UpdateFileFolder($ID,$file_Name,$folder){
 
 //upload folder file data
 function InsertFileFolder($file_Name,$folder){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
     $sql = "INSERT INTO filedata 
     (
         `folderName`, `fileName`
@@ -177,7 +181,7 @@ function InsertFileFolder($file_Name,$folder){
 
 //delete Image.
 function DeleteFileBYID($id){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
     $sql = "DELETE FROM filedata WHERE id='$id'";
     if (mysqli_query($link, $sql)) {
         echo "<script> alert('Record Delete successfully.'); </script>";
@@ -192,7 +196,7 @@ function DeleteFileBYID($id){
 
 //delete image
 function DeleteFileBYFolderID($id){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
     $sql = "DELETE FROM filedata WHERE folderName='$id'";
     if (mysqli_query($link, $sql)) {
         echo "<script> alert('Delete folder successfully.'); </script>";
@@ -208,7 +212,7 @@ function DeleteFileBYFolderID($id){
 
 // page updateFiles display all files
 function GetFileDataByFolderID($ID){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $query = "SELECT * FROM `filedata` WHERE `folderName`='$ID'  ORDER BY id ASC";
     $result = mysqli_query($link, $query);
@@ -218,7 +222,7 @@ function GetFileDataByFolderID($ID){
 }
 
 function GetFileDataByID($ID){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $query = "SELECT * FROM `filedata` WHERE `id`='$ID'  ORDER BY id ASC";
     $result = mysqli_query($link, $query);
@@ -237,8 +241,7 @@ function GetFileDataByID($ID){
 // return +1 id of current data in blog.
 function GetFileLocation(){
 
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
-
+    $link = GetBlogDataDB();
     $query = "SELECT `id` FROM `blogdata` ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($link, $query);
     $rows = mysqli_fetch_assoc($result);
@@ -256,7 +259,7 @@ function GetFileLocation(){
 
 // create directory of +1 id blog data.
 function CreateDirectoryAndAddFile(){
-    $link = mysqli_connect("localhost", "root", "", "my_blogs");
+    $link = GetBlogDataDB();
 
     $query = "SELECT `id` FROM `blogdata` ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($link, $query);

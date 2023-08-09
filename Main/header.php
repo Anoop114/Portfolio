@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./Asset/css/Bootstrap/aos.css">
 
     <link rel="stylesheet" href="./Asset/css/style.css">
-    
+    <link rel="icon" type="image/x-icon" href="./Asset/images/favicon_io/favicon.ico">
     <script src="https://cdn.tiny.cloud/1/w3r0r9zl5y3j624ieuxvyfe8hfvittfeqv5o8o08mjzh4ize/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>

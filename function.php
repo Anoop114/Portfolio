@@ -10,6 +10,7 @@ if ($function == "logout") {
         
     session_unset();
     header("Location: http://localhost/MY_Portfolio/Portfolio/");
+    // header("Location: http://anoopkrsh.great-site.net/");
     exit();
 }
 ?>

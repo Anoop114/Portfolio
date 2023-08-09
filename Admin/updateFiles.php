@@ -216,6 +216,7 @@ if(isset($_POST['Upload_File'])){
         $ExtensionName = UploadFileInDB('BannerData.jpg',$tempname,$fileLocation);
         if($ExtensionName){
             echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
+            // echo '<script> document.location.href = "http://anoopkrsh.great-site.net/index.php?p=home"; </script>';
         }else{
             echo "<script> alert('Somthing error on file upload.'); </script>";
         }
@@ -228,6 +229,7 @@ if(isset($_POST['Upload_File'])){
             $uploadInDBSuccess = UploadFileInDB($Upload_fileName,$tempname,$fileLocation);
             if($uploadInDBSuccess){
                 echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
+                // echo '<script> document.location.href = "http://anoopkrsh.great-site.net/index.php?p=home"; </script>';
             }else{
                 echo "<script> alert('file upload fail in local storage pls delete last entry from db and again upload.'); </script>";
             }
