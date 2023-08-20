@@ -10,6 +10,35 @@
     $data = mysqli_fetch_assoc($link);
     
 ?>
+<!-- Header -->
+<header class="header-area">
+    <div class="container">
+        <div class="gx-row d-flex align-items-center justify-content-between">
+            <a href="https://anoop114.github.io/Portfolio/" class="logo">
+                <img src="./Asset/images/logo.jpeg" alt="Logo">
+            </a>
+
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><a href="https://anoop114.github.io/Portfolio/">Home</a></li>
+                    <li><a href="https://anoop114.github.io/Portfolio/About.html">About</a></li>
+                    <li class="active"><a href="?p=work">Works</a></li>
+                    <li><a href="?p=cont">Contact</a></li>
+                </ul>
+                <a href="?p=cont" class="theme-btn">Let's talk</a>
+            </nav>
+
+            <a href="?p=cont" class="theme-btn">Let's talk</a>
+
+            <div onclick="myFun()" class="show-menu" id="navCloser">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
+
 
 <!-- Breadcrumb -->
 <section class="breadcrumb-area">
@@ -25,7 +54,7 @@
                     if($data['unity_scene'] != ''){
                 ?>
                 <div class="d-md-flex justify-content-md-end">
-                    <a href="#" class="theme-btn">Click to Play</a>
+                    <a href="https://anoop114.github.io/UnityGameBuild/?scene=<?php echo $data['unity_scene'];?>" class="theme-btn" target="_blank">Click to Play</a>
                 </div>
                 <?php }?>
         </div>

@@ -78,7 +78,7 @@ if(isset($_POST['createBlog'])){
     $result = UpdateBloge($data['id'],$blogTitle,$blogData,$unitySceneName);
     if($result){
         echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
-        // echo '<script> document.location.href = "http://anoopkrsh.great-site.net/index.php?p=home"; </script>';
+        // echo '<script> document.location.href = "https://anoopkrsh.great-site.net/index.php?p=home"; </script>';
     }
 }
 

@@ -47,7 +47,7 @@ if(isset($_POST['createBlog'])){
         $uploadBlogDataToDB =  CreateBlog($blogTitle,$blogData,$unitySceneName,$extension);
         if($uploadBlogDataToDB){
             echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
-            // echo '<script> document.location.href = "http://anoopkrsh.great-site.net/index.php?p=home"; </script>';
+            // echo '<script> document.location.href = "https://anoopkrsh.great-site.net/index.php?p=home"; </script>';
         }else{
             echo "<script> alert('Somthing error or file has not any formate.'); </script>";
         }

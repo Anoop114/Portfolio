@@ -33,7 +33,7 @@ if(isset($name) && isset($eml) && isset($sub) && isset($msg)){
     
         //Recipients
         $mail->setFrom('anoopphi123@gmail.com', 'Portfolio');
-        $mail->addAddress('anoopphi123+Portfolio@gmail.com', $name);     //Add a recipient
+        $mail->addAddress('Anoopkrsh22+Portfolio@gmail.com', $name);     //Add a recipient
     
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
