@@ -21,7 +21,7 @@
             <nav class="navbar">
                 <ul class="menu">
                     <li><a href="https://anoop114.github.io/Portfolio/">Home</a></li>
-                    <li><a href="https://anoop114.github.io/Portfolio/About.html">About</a></li>
+                    <li><a href="https://anoop114.github.io/Portfolio/AboutFull.html">About</a></li>
                     <li class="active"><a href="?p=work">Works</a></li>
                     <li><a href="?p=cont">Contact</a></li>
                 </ul>
