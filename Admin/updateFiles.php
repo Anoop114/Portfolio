@@ -1,6 +1,6 @@
 <?php
     $fileID = isset($_GET['fileID']) ? $_GET['fileID'] : '';
-    $fileRespondData = GetBlogDataByID($fileID);
+    $fileRespondData = GetBlogDataByFileID($fileID);
     $data_Blog = mysqli_fetch_assoc($fileRespondData)
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

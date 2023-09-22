@@ -59,8 +59,25 @@ function GetBlogDataByID($ID) {
     return $result;
 }
 
+function GetBlogDataByFileID($ID) {
+    $link = GetBlogDataDB();
+
+    $query;
+    if($ID == ''){
+        $query = "SELECT * FROM `blogdata` ORDER BY id DESC LIMIT 1";
+    }else{
+        $query = "SELECT * FROM `blogdata` WHERE `folderId`='$ID'";
+    }
+
+    $result = mysqli_query($link, $query);
+    
+    mysqli_close($link);
+    return $result;
+}
+
+
 // upload blog data
-function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$extension){
+function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$GameTitle,$extension){
     $link = GetBlogDataDB();
 
     $query = "SELECT `id` FROM `blogdata` ORDER BY id DESC LIMIT 1";
@@ -76,11 +93,11 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$extension){
 
     $sql = "INSERT INTO blogdata 
     (
-        blog_name, blog_Data, unity_scene
+        blog_name, folderId, blog_Data, unity_scene ,GameType
     )
     VALUES 
     (
-        '$blogNmae', '$blogHtml', '$untiySceneName'
+        '$blogNmae', '$folderName','$blogHtml', '$untiySceneName','$GameTitle'
     )";
 
     if (mysqli_query($link,$sql)) {

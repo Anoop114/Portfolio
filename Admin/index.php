@@ -39,7 +39,7 @@
               <td class="align-middle"><?php echo $data['created_time'];  ?></td>
               <td class="align-middle"><?php echo $data['unity_scene'];  ?></td>
               <td class="align-middle">
-                <a type="button" class="btn btn-primary btn-sm" href="?p=file&fileID=<?php echo $data['id']; ?>"> <i
+                <a type="button" class="btn btn-primary btn-sm" href="?p=file&fileID=<?php echo $data['folderId']; ?>"> <i
                     class="bi bi-eye-fill"></i></a>
                 <a type="button" class="btn btn-success btn-sm" href="?p=edit&fileID=<?php echo $data['id']; ?>"> <i
                     class="bi bi-pencil-square"></i></a>
