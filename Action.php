@@ -8,21 +8,10 @@ if ($_GET['action'] == "login"){
         header("location: index.php");
     } else {
         //echo "Enter correct username/password";
-        header("Location: index.php?error =Incorect User name or password");
+        header("Location: index.php?error =Incorrect User name or password");
 
         exit();
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 ?>

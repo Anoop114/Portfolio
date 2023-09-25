@@ -1,0 +1,23 @@
+*.overlay_3 {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* padding: 1rem; */
+    z-index: 1000;
+    transform: scale(1);
+    transition: all .3s ease-in-out;
+    backdrop-filter: blur(8px) brightness(80%);
+  }
+
+  .overlay {
+    position: absolute; 
+    background: rgba(57, 57, 57, 0.5);
+    
+    /* center overlay text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image_wrapper:hover .overlay_3 {
+    transform: scale(1);
+  }

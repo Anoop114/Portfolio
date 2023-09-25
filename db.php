@@ -24,17 +24,39 @@ function GetBlogData() {
     return $result;
 }
 
+//page index display by GameType
+function GetBlogDataByGameType($gameType) {
+    $link = GetBlogDataDB();
+    $query;
+    if($gameType != ''){
+
+        $query = "SELECT * FROM `blogdata` WHERE `GameType` = '$gameType' ORDER BY `id` DESC";
+    }
+    else{
+        $query = "SELECT * FROM `blogdata` ORDER BY `id` DESC";
+    }
+    $result = mysqli_query($link, $query);
+    
+    mysqli_close($link);
+    return $result;
+}
+
 //Get all BlogData as match
-function GetBlogByData($data){
+function GetBlogByData($data,$gameType){
     if($data == ''){
         return GetBlogData();
     }else{
         $link = GetBlogDataDB();
-
-        $query = "SELECT * FROM `blogdata` WHERE 
-                    `blog_Data` LIKE '%$data%' OR
-                    `blog_name` LIKE '%$data%'
+        $query;
+        if($gameType != ''){
+            $query = "SELECT * FROM `blogdata`
+                    WHERE `GameType` = '$gameType' AND `blog_Data` LIKE '%$data%' OR `blog_name` LIKE '%$data%'
                     ORDER BY `id` DESC";
+        }else{
+            $query = "SELECT * FROM `blogdata`
+                        WHERE `blog_Data` LIKE '%$data%' OR `blog_name` LIKE '%$data%'
+                        ORDER BY `id` DESC";
+        }
         $result = mysqli_query($link, $query);
         
         mysqli_close($link);
