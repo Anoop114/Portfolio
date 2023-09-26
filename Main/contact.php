@@ -69,10 +69,13 @@
 
                 <h3 data-aos="fade-up">Social Info</h3>
                 <ul class="social-links d-flex align-center" data-aos="zoom-in">
-                    <li>
-                        <a class="shadow-box" href="https://github.com/Anoop114"><i class="iconoir-github"></i></a></li>
-                    <li><a class="shadow-box" href="https://www.linkedin.com/in/anoop-kumar-sharma-716906226/"><i
-                                class="iconoir-linkedin"></i></a></li>
+                    <li><a class="shadow-box" href="https://github.com/Anoop114"><i class="iconoir-github"></i></a></li>
+                    <li><a class="shadow-box" href="https://www.linkedin.com/in/anoop-kumar-sharma-716906226/"><i class="iconoir-linkedin"></i></a></li>
+                </ul>
+                <br>
+                <ul class="social-links d-flex align-center" data-aos="zoom-in">
+                    <li><a class="shadow-box" href="https://twitter.com/SoloDevUnity"><i class="iconoir-twitter"></i></a></li>
+                    <li><a class="shadow-box" href="https://www.instagram.com/solodevunity/"><i class="iconoir-instagram"></i></a></li>
                 </ul>
             </div>
 
