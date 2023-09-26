@@ -99,7 +99,7 @@ function GetBlogDataByFileID($ID) {
 
 
 // upload blog data
-function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$GameTitle,$extension){
+function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$gameURL,$GameTitle,$extension) {
     $link = GetBlogDataDB();
 
     $query = "SELECT `id` FROM `blogdata` ORDER BY id DESC LIMIT 1";
@@ -115,11 +115,11 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$GameTitle,$extension){
 
     $sql = "INSERT INTO blogdata 
     (
-        blog_name, folderId, blog_Data, unity_scene ,GameType
+        blog_name, folderId, blog_Data, unity_scene, gameUrl,GameType
     )
     VALUES 
     (
-        '$blogNmae', '$folderName','$blogHtml', '$untiySceneName','$GameTitle'
+        '$blogNmae', '$folderName','$blogHtml', '$untiySceneName','$gameURL','$GameTitle'
     )";
 
     if (mysqli_query($link,$sql)) {
@@ -135,28 +135,30 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$GameTitle,$extension){
         }
     } else {
         return false;
-        echo  '<script> alert("Error: " . $sql . "<br>" . $conn->error; </script>';
+        echo  '<script> console.log("Error: " . $sql . "<br>" . $conn->error; </script>';
     }
     mysqli_close($link);
 }
 
 //Updata created Blog Title
-function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName){
+function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName,$gameType,$gameURL){
     $link = GetBlogDataDB();
 
     $sql = "UPDATE blogdata SET 
         blog_name = '$blogNmae',
         blog_Data = '$blogHtml',
-        unity_scene = '$untiySceneName'
+        unity_scene = '$untiySceneName',
+        gameUrl = '$gameURL',
+        GameType = '$gameType'
     WHERE id = '$ID'";
 
 
     if (mysqli_query($link,$sql)) {
         return true;
-        echo "<script> alert('update completed.'); </script>";
+        echo "<script> console.log('update completed.'); </script>";
     } else {
         return false;
-        echo  '<script> alert("Error: on upload"); </script>';
+        echo  '<script> console.log("Error: on upload"); </script>';
     }
     mysqli_close($link);
 }
@@ -167,11 +169,11 @@ function DeleteBlog($id){
     $link = GetBlogDataDB();
     $sql = "DELETE FROM `blogdata` WHERE `id`= ".$id." ";
     if (mysqli_query($link, $sql)) {
-        echo "<script> alert('Record Delete successfully.'); </script>";
+        echo "<script> console.log('Record Delete successfully.'); </script>";
         return true;
         
     }else{
-        echo "<script> alert('Record delete failed.'); </script>";
+        echo "<script> console.log('Record delete failed.'); </script>";
         return false;
     }
     mysqli_close($link);
@@ -189,9 +191,9 @@ function UpdateFileFolder($ID,$file_Name,$folder){
     WHERE id = '$ID' ";
 
     if (mysqli_query($link,$sql)) {
-        echo "<script> alert('New record created successfully'); </script>";
+        echo "<script> console.log('New record created successfully'); </script>";
     } else {
-        echo  '<script> alert("Error: on upload"); </script>';
+        echo  '<script> console.log("Error: on upload"); </script>';
     }
     mysqli_close($link);
 }
@@ -210,10 +212,10 @@ function InsertFileFolder($file_Name,$folder){
 
     if (mysqli_query($link,$sql)) {
         return true;
-        echo "<script> alert('New record created successfully'); </script>";
+        echo "<script> console.log('New record created successfully'); </script>";
     } else {
         return false;
-        echo  '<script> alert("Error: on upload"); </script>';
+        echo  '<script> console.log("Error: on upload"); </script>';
     }
     mysqli_close($link);
 }
@@ -223,11 +225,11 @@ function DeleteFileBYID($id){
     $link = GetBlogDataDB();
     $sql = "DELETE FROM filedata WHERE id='$id'";
     if (mysqli_query($link, $sql)) {
-        echo "<script> alert('Record Delete successfully.'); </script>";
+        echo "<script> console.log('Record Delete successfully.'); </script>";
         return true;
         
     }else{
-        echo "<script> alert('Record delete failed.'); </script>";
+        echo "<script> console.log('Record delete failed.'); </script>";
         return false;
     }
     mysqli_close($link);
@@ -238,11 +240,11 @@ function DeleteFileBYFolderID($id){
     $link = GetBlogDataDB();
     $sql = "DELETE FROM filedata WHERE folderName='$id'";
     if (mysqli_query($link, $sql)) {
-        echo "<script> alert('Delete folder successfully.'); </script>";
+        echo "<script> console.log('Delete folder successfully.'); </script>";
         return true;
         
     }else{
-        echo "<script> alert('Delete folder failed.'); </script>";
+        echo "<script> console.log('Delete folder failed.'); </script>";
         return false;
     }
     mysqli_close($link);
@@ -325,6 +327,9 @@ function DeleteSubFiles($filename){
         }
     }
     rmdir($filename);
-    echo "<script> alert('delete local folder Success.'); </script>";
+    echo "<script> console.log('delete local folder Success.'); </script>";
+    
+    echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php"; </script>';
+    // echo '<script> document.location.href = "https://anoopkrsh.great-site.net/index.php"; </script>';
 }
 ?>

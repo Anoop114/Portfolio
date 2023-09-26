@@ -29,6 +29,17 @@
                     </div>
                 </div>
             </div>
+            <div class="my-3">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label for="Title" class="form-label">Game URL</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="GameURL" name="GameSceneURL"
+                                placeholder="Add Game URl (https//a.com)">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Choose Image</label>
                 <input class="form-control" type="file" name="bannerImage" id="formFile" accept=".jpg" />
@@ -49,6 +60,7 @@ if(isset($_POST['createBlog'])){
     $blogTitle = $_POST['blogTitle'];
     $unitySceneName = $_POST['unityScene'];
     $GameNme = $_POST['GameTitle'];
+    $GameURL = $_POST['GameSceneURL'];
 
     $extension  = pathinfo( $_FILES["bannerImage"]["name"], PATHINFO_EXTENSION );
     $tempname = $_FILES["bannerImage"]["tmp_name"];
@@ -56,7 +68,7 @@ if(isset($_POST['createBlog'])){
     $Upload_File_Local = UploadFileInDB($extension,$tempname);
 
     if($Upload_File_Local){
-        $uploadBlogDataToDB =  CreateBlog($blogTitle,$blogData,$unitySceneName,$GameNme,$extension);
+        $uploadBlogDataToDB =  CreateBlog($blogTitle,$blogData,$unitySceneName,$GameURL,$GameNme,$extension);
         if($uploadBlogDataToDB){
             echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
             // echo '<script> document.location.href = "https://anoopkrsh.great-site.net/index.php?p=home"; </script>';

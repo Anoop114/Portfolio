@@ -39,10 +39,32 @@
                     </div>
                 </div>
             </div>
+            <div class="my-3">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label for="Title" class="form-label">Game Tag</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="GameName" name="GameTitle"
+                                placeholder="Add Game Tag" value="<?php echo $data['GameType']; ?>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-3">
+                <div class="row">
+                    <div class="col-md-8">
+                        <label for="Title" class="form-label">Game URL</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="GameURL" name="GameSceneURL"
+                                placeholder="Add Game URl (https//a.com)" value="<?php echo $data['gameUrl']; ?>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Uploaded Image</label>
             </div>
-            <img src="./DB/<?php echo $data['id']; ?>/BannerData.jpg" class="img-fluid mx-auto d-block  my-3">
+            <img src="./DB/<?php echo $data['folderId']; ?>/BannerData.jpg" class="img-fluid mx-auto d-block  my-3" style="max-height: 256px; max-width: 256px;" >
 
         </section>
         <section class="my-3 form-control">
@@ -75,7 +97,9 @@ if(isset($_POST['createBlog'])){
     $blogTitle = $_POST['blogTitle'];
     $unitySceneName = $_POST['unityScene'];
     $blogData = $_POST['blogData'];
-    $result = UpdateBloge($data['id'],$blogTitle,$blogData,$unitySceneName);
+    $GameType = $_POST['GameTitle'];
+    $GameURL = $_POST['GameSceneURL'];
+    $result = UpdateBloge($data['id'],$blogTitle,$blogData,$unitySceneName,$GameType,$GameURL);
     if($result){
         echo '<script> document.location.href = "http://localhost/MY_Portfolio/Portfolio/index.php?p=home"; </script>';
         // echo '<script> document.location.href = "https://anoopkrsh.great-site.net/index.php?p=home"; </script>';

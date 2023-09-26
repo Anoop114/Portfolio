@@ -38,6 +38,7 @@
               <td class="align-middle"><?php echo $data['blog_name']; ?></td>
               <td class="align-middle"><?php echo $data['created_time'];  ?></td>
               <td class="align-middle"><?php echo $data['unity_scene'];  ?></td>
+              <td class="align-middle f_id" style="display: none;"><?php echo $data['folderId'];  ?></td>
               <td class="align-middle">
                 <a type="button" class="btn btn-primary btn-sm" href="?p=file&fileID=<?php echo $data['folderId']; ?>"> <i
                     class="bi bi-eye-fill"></i></a>
@@ -70,6 +71,7 @@
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <form method="POST">
                       <input type="hidden" name="Blog_Id" id="delete_blog_id">
+                      <input type="hidden" name="Blog_Folder" id="delete_blog_Folder">
                       <button type="submit" class="btn btn-danger" name="Dlelete_Blog_DB"> Delete Blog </button>
                   </form>
               
@@ -86,7 +88,9 @@
             e.preventDefault();
             
             var Blog_ID = $(this).closest('tr').find('.b_id').text(); 
+            var folder_ID = $(this).closest('tr').find('.f_id').text(); 
             $('#delete_blog_id').val(Blog_ID);
+            $('#delete_blog_Folder').val(folder_ID);
             $('#DeleteBlogModal').modal('show');  
         });
   });
@@ -95,9 +99,10 @@
 <?php
 if(isset($_POST['Dlelete_Blog_DB'])){
   $blogId = $_POST['Blog_Id'];
+  $folderId = $_POST['Blog_Folder'];
   $requestToDelete = DeleteBlog($blogId);
   if($requestToDelete){
-    DeleteAllFilesOfTheBlog($blogId);
+    DeleteAllFilesOfTheBlog($folderId);
   }
 }
 

@@ -87,20 +87,17 @@
                             </div>
                         </div>
                         <br>
-                        <!-- <a class="overlay-link" href="?p=Showblog&blogID=<?php echo $data['id']; ?>"></a> -->
                         <img src="./Asset/images/bg1.png" alt="BG" class="bg-img">
                         <div class="project-img d-flex justify-content-center">
-                            <img src="./DB/<?php echo $data['id']; ?>/BannerData.jpg" alt="Project"
+                            <img src="./DB/<?php echo $data['folderId']; ?>/BannerData.jpg" alt="Project"
                                 style="max-height: 300px;height: 100%;  max-width: 300px; width: 100%;">
                         </div>
                         <div class="d-flex align-items-center justify-content-around">
-                            <!-- <div class="project-info">
-                                <h1><?php echo $data['blog_name']; ?></h1>
-                            </div>
-                            <a href="?p=Showblog&blogID=<?php echo $data['id']; ?>" class="project-btn">
-                                <img src="./Asset/fonts/icon.svg" alt="Button">
-                            </a> -->
-                            <a class="btn btn-secondary" href="#" role="button">Click To Play</a>
+                            <?php
+                            $gameURL = $data['gameUrl'];
+                            if($gameURL!='' && $gameURL != null){ ?>
+                            <a class="btn btn-secondary" href="<?php echo $gameURL; ?>" target="_blank" role="button">Click To Play</a>
+                            <?php } ?>
                             <a class="btn btn-info" href="?tag=<?php echo $SceneTag; ?>&p=Showblog&blogID=<?php echo $data['id']; ?>" role="button">Read Blog</a>
                         </div>
                     </div>

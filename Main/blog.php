@@ -51,10 +51,10 @@
                     <span class="meta me-md-2"><?php echo $data['created_time']; ?></span>
                 </div>
                 <?php 
-                    if($data['unity_scene'] != ''){
+                    if($data['gameUrl'] != ''){
                 ?>
                 <div class="d-md-flex justify-content-md-end">
-                    <a href="https://anoop114.github.io/UnityGameBuild/?scene=<?php echo $data['unity_scene'];?>" class="theme-btn" target="_blank">Click to Play</a>
+                    <a href="<?php echo $data['gameUrl'];?>" class="theme-btn" target="_blank">Click to Play</a>
                 </div>
                 <?php }?>
         </div>
@@ -70,10 +70,7 @@
                 <div class="blog-items">
                     <div class="blog-item" data-aos="zoom-in">
                         <div class="img-box">
-                            <!-- <div class="d-flex justify-content-end">
-                                <a href="blog-details.html" class="theme-btn">Play Game</a>
-                            </div> -->
-                            <img src="./DB/<?php echo $data['id']; ?>/BannerData.jpg" alt="Blog">
+                            <img src="./DB/<?php echo $data['folderId']; ?>/BannerData.jpg" alt="Blog">
                         </div>
                         <div class="content">
                             <div id="editor">
