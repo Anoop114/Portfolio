@@ -143,7 +143,7 @@ function CreateBlog($blogNmae,$blogHtml,$untiySceneName,$gameURL,$GameTitle,$ext
 //Updata created Blog Title
 function UpdateBloge($ID,$blogNmae,$blogHtml,$untiySceneName,$gameType,$gameURL){
     $link = GetBlogDataDB();
-
+    $blogHtml = $link->real_escape_string($blogHtml);
     $sql = "UPDATE blogdata SET 
         blog_name = '$blogNmae',
         blog_Data = '$blogHtml',
