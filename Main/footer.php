@@ -146,11 +146,12 @@
 
 
         // my added fun
-        readonly: true,
-        toolbar: false,
-        statusbar: false,
-        menubar: false,
-        disable_scroll: true,
+        //disabled = true,
+        //toolbar = false,
+        //statusbar = false,
+        //menubar = false,
+        //disable_scroll = true,
+        readonly = true,
     });
 </script>
 
