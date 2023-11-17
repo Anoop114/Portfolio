@@ -77,6 +77,9 @@
                         $rowcount = mysqli_num_rows($blogData);
                         if($rowcount>0){
                             while($data = mysqli_fetch_assoc($blogData)){
+                                if($data['unity_scene'] == "" || $data['unity_scene'] == ''){
+                                    continue;
+                                }
                     ?>
             <div class="col-md-4 d-flex align-items-start gap-24">
                 <div data-aos="zoom-in" class="flex-1">
