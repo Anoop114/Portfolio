@@ -30,11 +30,11 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     scroll-behavior: smooth;
     color: #9f9f9f;
     background: #0F0F0F;
-    line-height: 19.2px;
+    line-height: 1.6;
 }
 img {
     max-width: 100%;
@@ -126,6 +126,31 @@ ol {
     background: #fff;
     color: var(--dark);
 }
+.theme-btn:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+}
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--primary_color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+input:focus, textarea:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary_color);
+}
+
+/* Reduced motion — kill all animations for vestibular users */
+@media (prefers-reduced-motion: reduce) {
+    [data-aos] { transition: none !important; opacity: 1 !important; }
+    .marquee div { animation: none !important; }
+    .preloader { display: none !important; }
+    .theme-btn, .info-box, .featured-game-card, .skill-tag, .badge {
+        transition: none !important;
+    }
+}
+
 .shadow-box {
     position: relative;
     border-radius: 30px;
@@ -230,7 +255,7 @@ ol {
 .info-box .infos h4 {
     color: #BCBCBC;
     font-size: 12px;
-    opacity: 0.5;
+    opacity: 0.65;
     margin-bottom: 6px;
     text-transform: uppercase;
     margin-top: 8px;
@@ -244,9 +269,14 @@ ol {
     opacity: 0.2;
     transition: .3s;
     display: inline-block;
+    cursor: pointer;
 }
 .info-box:hover .about-btn {
     opacity: 1;
+}
+.info-box:active {
+    transform: scale(0.985);
+    transition: transform 100ms ease-out;
 }
 .info-box .inner-profile-icons {
     display: flex;
@@ -684,6 +714,10 @@ ol {
     background: linear-gradient(120deg, rgba(91,120,246,0.25), rgba(91,120,246,0.08));
     transform: translateY(-2px);
 }
+.about-me-box.enhanced-card .tech-badges .badge:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+}
 .about-area .about-credentials-wrap .banner {
     padding: 17px 25px;
     margin-bottom: 24px;
@@ -810,6 +844,7 @@ ol {
 .projects-area .project-item {
     margin-bottom: 24px;
     padding: 16px 16px 26px 16px;
+    cursor: pointer;
 }
 .projects-area .project-item .project-img {
     border-radius: 30px;
@@ -1063,6 +1098,10 @@ ol {
     border-color: var(--primary_color);
     background: linear-gradient(120deg, rgba(91,120,246,0.2), rgba(91,120,246,0.05));
     transform: translateY(-2px);
+}
+.about-tech-badges .badge:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
 }
 .credential-about h2 i {
     color: var(--primary_color);
@@ -1452,14 +1491,19 @@ ol {
     background: linear-gradient(120deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
-    transition: .3s;
+    transition: color 200ms ease-out, border-color 200ms ease-out, background 200ms ease-out, transform 150ms ease-out;
     letter-spacing: 0.2px;
+    cursor: default;
 }
 .skill-tags .skill-tag:hover {
     color: #ffffff;
     border-color: var(--primary_color);
     background: linear-gradient(120deg, rgba(91,120,246,0.2), rgba(91,120,246,0.05));
     transform: translateY(-2px);
+}
+.skill-tags .skill-tag:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
 }
 
 /* Skill Badges */
@@ -1497,6 +1541,10 @@ ol {
     border-color: var(--primary_color);
     background: linear-gradient(120deg, rgba(91,120,246,0.2), rgba(91,120,246,0.05));
     transform: translateY(-2px);
+}
+.skill-badges-wrap .badge-group .badge:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
 }
 
 /* Skill Description */
@@ -2217,6 +2265,10 @@ ol {
     background: linear-gradient(120deg, rgba(91,120,246,0.2), rgba(91,120,246,0.05));
     transform: translateY(-2px);
 }
+.tech-stack-badges .badge:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+}
 
 /* Steps List */
 .steps-list {
@@ -2462,12 +2514,17 @@ ol {
     gap: 18px;
     align-items: stretch;
     overflow: hidden;
-    transition: .3s;
+    transition: transform 300ms ease-out, box-shadow 300ms ease-out;
     margin-bottom: 24px;
+    cursor: pointer;
 }
 .featured-game-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(91,120,246,0.12);
+}
+.featured-game-card:active {
+    transform: scale(0.985);
+    transition: transform 100ms ease-out;
 }
 .featured-game-card .bg-img {
     opacity: 0.1;
@@ -2805,7 +2862,9 @@ ol {
     .header-area .navbar {
         position: fixed;
         width: 100%;
-        background: #0F0F0F;
+        background: rgba(15, 15, 15, 0.85);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         z-index: 15;
         overflow-x: hidden;
         /* height: 80px; */

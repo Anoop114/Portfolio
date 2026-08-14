@@ -1,22 +1,23 @@
-let x = false;
-let isScroll = false;
-var menuIcon = document.getElementById("navbarClose");
-window.onscroll = function () {
-    myFunction()
-};
+// Smooth mobile nav toggle — only closes when a nav link is clicked, not on every scroll
+(function () {
+    'use strict';
+    var menuBtn = document.getElementById('navbarClose');
+    var navbar = document.querySelector('.header-area .navbar');
 
-function myFunction() {
-    if (x) {
-        x = false;
-        isScroll = true;
-        menuIcon.click();
-    } else {
-        isScroll = false;
-    }
-}
+    if (!menuBtn || !navbar) return;
 
-function myFun() {
-    if (!isScroll) {
-        x = true;
+    function toggleMenu() {
+        menuBtn.classList.toggle('active');
+        navbar.classList.toggle('active');
     }
-}
+
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Close menu when any nav link is tapped
+    navbar.querySelectorAll('.menu a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            menuBtn.classList.remove('active');
+            navbar.classList.remove('active');
+        });
+    });
+})();
