@@ -1,4 +1,4 @@
-// Smooth mobile nav toggle — only closes when a nav link is clicked, not on every scroll
+// Smooth mobile nav toggle — interruptible, cancels in-progress transitions on re-tap
 (function () {
     'use strict';
     var menuBtn = document.getElementById('navbarClose');
@@ -7,8 +7,17 @@
     if (!menuBtn || !navbar) return;
 
     function toggleMenu() {
-        menuBtn.classList.toggle('active');
+        // Cancel any in-progress CSS transition by forcing the current rendered state
+        // before toggling, so the new animation starts from the live on-screen value
+        var computed = getComputedStyle(navbar);
+        navbar.style.transition = 'none';
+        navbar.offsetHeight; // force reflow to apply the above
         navbar.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+        // Restore transition for the next toggle
+        requestAnimationFrame(function () {
+            navbar.style.transition = '';
+        });
     }
 
     menuBtn.addEventListener('click', toggleMenu);
