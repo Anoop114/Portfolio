@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./css/aos.css">
 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dori.css">
 </head>
 
 <body>
@@ -100,6 +101,37 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Dori AI Assistant - fixed bottom-right, hover to swap, click to chat -->
+                    <div class="dori-wrapper" id="doriWrapper" aria-label="Dori - Click to chat">
+                        <div class="dori-hint-pulse" id="doriHintPulse">
+                            <span class="dori-pulse-dot">
+                                <span class="dori-pulse-ring"></span>
+                            </span>
+                            <span class="dori-hint-text">Ask Dori</span>
+                            <span class="dori-hint-sparkle">✨</span>
+                        </div>
+                        <img class="dori-idle-img" id="doriIdleImg" src="./images/dori/dori-default.png" alt="Dori" draggable="false">
+                        <img class="dori-hover-img" id="doriHoverImg" src="./images/dori/dori-hover.png" alt="Dori" draggable="false">
+                        <div class="dori-video-wrap" id="doriVideoWrap" style="display:none">
+                            <video id="doriVideo" src="./images/dori/dori-open.webm" autoplay muted playsinline loop></video>
+                        </div>
+                    </div>
+
+                    <!-- Dori AI Custom Header, Border Frame & Bottom Mask Overlays for Chatling -->
+                    <div class="dori-chat-border-frame" id="doriChatBorderFrame"></div>
+                    <div class="dori-chat-header-bar" id="doriChatHeaderBar">
+                        <img src="./images/dori/dori-default.png" alt="Dori" class="dori-chat-avatar">
+                        <div class="dori-chat-head-text">
+                            <div class="dori-chat-title-row">
+                                <span class="dori-chat-name">Dori</span>
+                                <span class="dori-chat-status"><span class="dori-status-dot"></span>Online</span>
+                            </div>
+                            <span class="dori-chat-tag">AI Assistant • Ask me anything</span>
+                        </div>
+                        <button type="button" class="dori-chat-x" id="doriChatX" aria-label="Close">✕</button>
+                    </div>
+                    <div class="dori-chat-bottom-bar" id="doriChatBottomBar"></div>
 
                 </div>
 
@@ -302,6 +334,14 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/aos.js"></script>
     <script src="./js/main.js"></script>
+    <!-- Chatling AI Integration -->
+    <script>
+        window.chtlConfig = {
+            chatbotId: "4322138461",
+            chatIconVisible: false
+        };
+    </script>
+    <script async data-id="4322138461" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
 </body>
 
 </html>
