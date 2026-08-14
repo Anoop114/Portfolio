@@ -114,12 +114,17 @@
     var video       = document.getElementById('doriVideo');
     var headerBar   = document.getElementById('doriChatHeaderBar');
     var bottomBar   = document.getElementById('doriChatBottomBar');
+    var emojiMask   = document.getElementById('doriChatEmojiMask');
     var borderFrame = document.getElementById('doriChatBorderFrame');
     var chatX       = document.getElementById('doriChatX');
     if (!wrapper) return;
 
     var chatOpen = false;
+    var isChatReady = false;
+    var pendingOpen = false;
     var scrollStartY = 0;
+    var lastToggleTime = 0;
+    var hintText = wrapper.querySelector('.dori-hint-text');
 
     function getChatIframe() {
         return document.getElementById('chtl-chat-iframe');
@@ -160,9 +165,71 @@
         }
     }
 
+    function markReady() {
+        if (isChatReady) return;
+        var iframe = getChatIframe();
+        if (!iframe) return;
+
+        isChatReady = true;
+        enforceChatBounds();
+
+        // Keep initially hidden until opened
+        if (!chatOpen) {
+            iframe.style.setProperty('display', 'none', 'important');
+            iframe.style.setProperty('visibility', 'hidden', 'important');
+            iframe.style.setProperty('opacity', '0', 'important');
+            iframe.style.setProperty('pointer-events', 'none', 'important');
+        }
+
+        if (hintText) {
+            hintText.textContent = 'Ask Dori';
+        }
+
+        if (pendingOpen) {
+            pendingOpen = false;
+            openChat();
+        }
+    }
+
+    function checkIframeReady() {
+        var iframe = getChatIframe();
+        if (iframe) {
+            iframe.addEventListener('load', markReady, { once: true });
+            try {
+                if (iframe.contentWindow && iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+                    markReady();
+                }
+            } catch (err) {
+                if (iframe.contentWindow) {
+                    setTimeout(markReady, 300);
+                }
+            }
+        }
+    }
+
+    // Monitor for iframe injection
+    var observer = new MutationObserver(function(mutations, obs) {
+        var iframe = getChatIframe();
+        if (iframe) {
+            obs.disconnect();
+            checkIframeReady();
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Initial check
+    checkIframeReady();
+
     // ── Open chat & display animated video ──
     function openChat() {
+        if (!isChatReady) {
+            pendingOpen = true;
+            if (hintText) hintText.textContent = 'Loading...';
+            return;
+        }
+
         chatOpen = true;
+        lastToggleTime = Date.now();
         scrollStartY = window.pageYOffset;
 
         // Activate mascot wrapper & play video at full opacity
@@ -177,32 +244,30 @@
             video.play().catch(function(){});
         }
 
-        // Restore iframe visibility
+        // Forcefully ensure iframe is visible and interactive
         var iframe = getChatIframe();
         if (iframe) {
-            iframe.style.removeProperty('display');
-            iframe.style.removeProperty('visibility');
-            iframe.style.removeProperty('opacity');
-            iframe.style.removeProperty('pointer-events');
+            iframe.style.setProperty('display', 'block', 'important');
+            iframe.style.setProperty('visibility', 'visible', 'important');
+            iframe.style.setProperty('opacity', '1', 'important');
+            iframe.style.setProperty('pointer-events', 'auto', 'important');
             iframe.style.removeProperty('transform');
         }
 
-        // Show custom header, border-frame & bottom mask overlays
+        // Show custom header, border-frame, emoji mask & bottom mask overlays
         if (headerBar)   headerBar.classList.add('dori-chat-open');
+        if (emojiMask)   emojiMask.classList.add('dori-chat-open');
         if (bottomBar)   bottomBar.classList.add('dori-chat-open');
         if (borderFrame) borderFrame.classList.add('dori-chat-open');
 
-        // Trigger Chatling open & lock bounds
+        // Trigger Chatling open
         try {
             if (window.Chatling && typeof window.Chatling.open === 'function') {
                 window.Chatling.open();
-            } else if (iframe) {
-                iframe.style.display = 'block';
-                iframe.style.opacity = '1';
-                iframe.style.visibility = 'visible';
             }
         } catch (err) {}
 
+        enforceChatBounds();
         requestAnimationFrame(enforceChatBounds);
         setTimeout(enforceChatBounds, 50);
         setTimeout(enforceChatBounds, 250);
@@ -212,6 +277,7 @@
     function closeChat() {
         if (!chatOpen) return;
         chatOpen = false;
+        lastToggleTime = Date.now();
 
         var iframe = getChatIframe();
 
@@ -230,6 +296,7 @@
             iframe.style.setProperty('pointer-events', 'none', 'important');
         }
         if (headerBar)   headerBar.classList.remove('dori-chat-open');
+        if (emojiMask)   emojiMask.classList.remove('dori-chat-open');
         if (bottomBar)   bottomBar.classList.remove('dori-chat-open');
         if (borderFrame) borderFrame.classList.remove('dori-chat-open');
 
@@ -248,9 +315,23 @@
     // ── Click Dori Mascot → Toggle chat ──
     wrapper.addEventListener('click', function(e) {
         e.stopPropagation();
+        var now = Date.now();
+        if (now - lastToggleTime < 280) return; // Prevent rapid spam-clicking race condition
+        lastToggleTime = now;
+
         if (chatOpen) {
             closeChat();
         } else {
+            if (!isChatReady) {
+                if (pendingOpen) {
+                    pendingOpen = false;
+                    if (hintText) hintText.textContent = 'Ask Dori';
+                } else {
+                    pendingOpen = true;
+                    if (hintText) hintText.textContent = 'Loading...';
+                }
+                return;
+            }
             openChat();
         }
     });
@@ -259,17 +340,24 @@
     if (chatX) {
         chatX.addEventListener('click', function(e) {
             e.stopPropagation();
+            lastToggleTime = Date.now();
             closeChat();
         });
     }
 
-    // ── Listen to Chatling Widget internal minimize event ──
+    // ── Listen to Chatling Widget internal events ──
     window.addEventListener('message', function(e) {
         try {
             if (!e || !e.data) return;
             var data = e.data;
+            if (data === 'chtl_chat_loaded' || data === 'chtl_chat_ready' || (data && (data.event_id === 'chtl_chat_widget_loaded' || data.event_id === 'chtl_chat_loaded' || data.event_id === 'chtl_chat_ready'))) {
+                markReady();
+            }
             if (data === 'chtl_chat_minimized' || (data && data.event_id === 'chtl_chat_widget_closed')) {
-                if (chatOpen) closeChat();
+                // Ignore delayed minimize messages caused by rapid toggle clicks
+                if (chatOpen && (Date.now() - lastToggleTime > 400)) {
+                    closeChat();
+                }
             }
         } catch (err) {}
     });

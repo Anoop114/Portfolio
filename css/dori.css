@@ -257,7 +257,7 @@ body>iframe#chtl-chat-iframe {
   outline: none !important;
   overflow: hidden !important;
   z-index: 9998 !important;
-  filter: brightness(0.86) contrast(1.06) !important;
+  filter: brightness(0.85) contrast(1.06) !important;
   background: transparent !important;
   box-sizing: border-box !important;
   transition: opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -307,20 +307,22 @@ body>iframe#chtl-chat-iframe {
   border-top-right-radius: 20px !important;
   z-index: 9999 !important;
   align-items: center;
-  gap: 11px;
-  padding: 0 16px;
+  gap: 0;
+  padding: 0 14px;
   box-sizing: border-box !important;
   box-shadow: none !important;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none !important;
   transform: translateY(8px) scale(0.97);
   transition: opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 86px), transparent calc(100% - 86px), transparent calc(100% - 44px), #000 calc(100% - 44px), #000 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 86px), transparent calc(100% - 86px), transparent calc(100% - 44px), #000 calc(100% - 44px), #000 100%);
 }
 
 .dori-chat-header-bar.dori-chat-open {
   display: flex !important;
   opacity: 1 !important;
-  pointer-events: auto !important;
+  pointer-events: none !important;
   transform: translateY(0) scale(1) !important;
 }
 
@@ -331,6 +333,8 @@ body>iframe#chtl-chat-iframe {
   border: 1px solid rgba(181, 255, 0, 0.35);
   object-fit: contain;
   flex-shrink: 0;
+  margin-right: 10px;
+  pointer-events: auto !important;
 }
 
 .dori-chat-head-text {
@@ -339,6 +343,7 @@ body>iframe#chtl-chat-iframe {
   flex-direction: column;
   gap: 1px;
   min-width: 0;
+  pointer-events: auto !important;
 }
 
 .dori-chat-title-row {
@@ -380,6 +385,18 @@ body>iframe#chtl-chat-iframe {
   font-size: 11px;
   color: rgba(255, 255, 255, .5);
   letter-spacing: .01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Spacer gap revealing Chatling's 3-dots menu button ── */
+.dori-chat-header-gap {
+  width: 38px;
+  height: 100%;
+  flex-shrink: 0;
+  background: transparent !important;
+  pointer-events: none !important;
 }
 
 .dori-chat-x {
@@ -397,6 +414,8 @@ body>iframe#chtl-chat-iframe {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 6px;
+  pointer-events: auto !important;
 }
 
 .dori-chat-x:hover {
@@ -409,6 +428,32 @@ body>iframe#chtl-chat-iframe {
   transform: scale(0.92);
 }
 
+/* ── Dori Chat Emoji Mask (Hides emoji button to prevent overflowing popup) ── */
+.dori-chat-emoji-mask {
+  display: none !important;
+  position: fixed !important;
+  bottom: 187px !important;
+  right: 75px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: #dedede!important;
+  border-radius: 6px !important;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+  cursor: default !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dori-chat-emoji-mask.dori-chat-open {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
 /* ── Dori Chat Bottom Bar (Seamless Slate Watermark Mask) ── */
 .dori-chat-bottom-bar {
   display: none !important;
@@ -418,7 +463,7 @@ body>iframe#chtl-chat-iframe {
   width: min(400px, 94vw) !important;
   max-width: calc(100vw - 40px) !important;
   height: 36px !important;
-  background: #dadee0 !important;
+  background: #dedede !important;
   border-bottom-left-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
   z-index: 10000 !important;
@@ -503,6 +548,14 @@ body>iframe#chtl-chat-iframe {
     border-top-right-radius: 20px !important;
     border-bottom: 1px solid rgba(181, 255, 0, 0.16) !important;
     margin: 0 auto !important;
+  }
+
+  .dori-chat-emoji-mask {
+    position: fixed !important;
+    bottom: 137px !important;
+    right: max(53px, calc((100vw - min(400px, calc(100vw - 20px))) / 2 + 53px)) !important;
+    width: 32px !important;
+    height: 32px !important;
   }
 
   .dori-chat-bottom-bar {
