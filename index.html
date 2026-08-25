@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="./css/aos.css">
 
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/dori.css">
+    <link rel="stylesheet" href="./css/miko.css">
 </head>
 
 <body>
@@ -66,16 +66,16 @@
                                 <img src="images/me_3.png" alt="About Me" width="224" height="224" loading="lazy">
                             </div>
                             <div class="infos">
-                                <h4>A GAME DEVELOPER</h4>
+                                <h4>SENIOR GAME DEVELOPER</h4>
                                 <h1>ANOOP KUMAR SHARMA.</h1>
-                                <p>Unity Developer specializing in 2D/3D, AR/VR, and AI/ML game experiences based in India.</p>
+                                <p>Senior Unity Developer with 5+ years of experience specializing in 2D/3D, AR/VR, and AI/ML game experiences based in India.</p>
                                 <div class="stats-row d-flex gap-24">
                                     <div class="stat-item">
-                                        <span class="stat-number">3+</span>
+                                        <span class="stat-number">5+</span>
                                         <span class="stat-label">Years Exp.</span>
                                     </div>
                                     <div class="stat-item">
-                                        <span class="stat-number">10+</span>
+                                        <span class="stat-number">20+</span>
                                         <span class="stat-label">Projects</span>
                                     </div>
                                     <div class="stat-item">
@@ -90,10 +90,15 @@
                                 <div class="tech-badges">
                                     <span class="badge">Unity</span>
                                     <span class="badge">C#</span>
+                                    <span class="badge">DOTS/ECS</span>
+                                    <span class="badge">URP/HDRP</span>
                                     <span class="badge">AR Foundation</span>
                                     <span class="badge">VR/XR</span>
                                     <span class="badge">ML-Agents</span>
                                     <span class="badge">Photon</span>
+                                    <span class="badge">Narrative AI</span>
+                                    <span class="badge">Blender</span>
+                                    <span class="badge">Git</span>
                                 </div>
                                 <a href="./AboutFull.html" class="about-btn">
                                     <img src="fonts/icon.svg" alt="Button">
@@ -102,38 +107,38 @@
                         </div>
                     </div>
 
-                    <!-- Dori AI Assistant - fixed bottom-right, hover to swap, click to chat -->
-                    <div class="dori-wrapper" id="doriWrapper" aria-label="Dori - Click to chat">
-                        <div class="dori-hint-pulse" id="doriHintPulse">
-                            <span class="dori-pulse-dot">
-                                <span class="dori-pulse-ring"></span>
+                    <!-- Miko AI Assistant - fixed bottom-right, hover to swap, click to chat -->
+                    <div class="miko-wrapper" id="mikoWrapper" aria-label="Miko - Click to chat">
+                        <div class="miko-hint-pulse" id="mikoHintPulse">
+                            <span class="miko-pulse-dot">
+                                <span class="miko-pulse-ring"></span>
                             </span>
-                            <span class="dori-hint-text">Ask Dori</span>
-                            <span class="dori-hint-sparkle">✨</span>
+                            <span class="miko-hint-text">Ask Miko</span>
+                            <span class="miko-hint-sparkle">✨</span>
                         </div>
-                        <img class="dori-idle-img" id="doriIdleImg" src="./images/dori/dori-default.png" alt="Dori" draggable="false">
-                        <img class="dori-hover-img" id="doriHoverImg" src="./images/dori/dori-hover.png" alt="Dori" draggable="false">
-                        <div class="dori-video-wrap" id="doriVideoWrap" style="display:none">
-                            <video id="doriVideo" src="./images/dori/dori-open.webm" autoplay muted playsinline loop></video>
+                        <img class="miko-idle-img" id="mikoIdleImg" src="./images/miko/miko-default.png" alt="Miko" draggable="false">
+                        <img class="miko-hover-img" id="mikoHoverImg" src="./images/miko/miko-hover.png" alt="Miko" draggable="false">
+                        <div class="miko-video-wrap" id="mikoVideoWrap" style="display:none">
+                            <video id="mikoVideo" src="./images/miko/miko-open.webm" autoplay muted playsinline loop></video>
                         </div>
                     </div>
 
-                    <!-- Dori AI Custom Header, Border Frame & Bottom Mask Overlays for Chatling -->
-                    <div class="dori-chat-border-frame" id="doriChatBorderFrame"></div>
-                    <div class="dori-chat-header-bar" id="doriChatHeaderBar">
-                        <img src="./images/dori/dori-default.png" alt="Dori" class="dori-chat-avatar">
-                        <div class="dori-chat-head-text">
-                            <div class="dori-chat-title-row">
-                                <span class="dori-chat-name">Dori</span>
-                                <span class="dori-chat-status"><span class="dori-status-dot"></span>Online</span>
+                    <!-- Miko AI Custom Header, Border Frame & Bottom Mask Overlays for Chatling -->
+                    <div class="miko-chat-border-frame" id="mikoChatBorderFrame"></div>
+                    <div class="miko-chat-header-bar" id="mikoChatHeaderBar">
+                        <img src="./images/miko/miko-default.png" alt="Miko" class="miko-chat-avatar">
+                        <div class="miko-chat-head-text">
+                            <div class="miko-chat-title-row">
+                                <span class="miko-chat-name">Miko</span>
+                                <span class="miko-chat-status"><span class="miko-status-dot"></span>Online</span>
                             </div>
-                            <span class="dori-chat-tag">AI Assistant • Ask me anything</span>
+                            <span class="miko-chat-tag">AI Assistant • Ask me anything</span>
                         </div>
-                        <div class="dori-chat-header-gap" id="doriChatHeaderGap"></div>
-                        <button type="button" class="dori-chat-x" id="doriChatX" aria-label="Close">✕</button>
+                        <div class="miko-chat-header-gap" id="mikoChatHeaderGap"></div>
+                        <button type="button" class="miko-chat-x" id="mikoChatX" aria-label="Close">✕</button>
                     </div>
-                    <div class="dori-chat-emoji-mask" id="doriChatEmojiMask"></div>
-                    <div class="dori-chat-bottom-bar" id="doriChatBottomBar"></div>
+                    <div class="miko-chat-emoji-mask" id="mikoChatEmojiMask"></div>
+                    <div class="miko-chat-bottom-bar" id="mikoChatBottomBar"></div>
 
                 </div>
 

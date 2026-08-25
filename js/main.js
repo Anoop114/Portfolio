@@ -55,20 +55,20 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // ── Back to Top Button & Dori Mutual Exclusivity ──
+    // ── Back to Top Button & Miko Mutual Exclusivity ──
     var btn = document.getElementById('backToTopBtn');
-    var doriWrapper = document.getElementById('doriWrapper');
+    var mikoWrapper = document.getElementById('mikoWrapper');
     var lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
     var hideTopBtnTimer = null;
 
     function showBackToTop() {
         if (btn) btn.classList.add('visible');
-        if (doriWrapper) doriWrapper.classList.add('dori-hidden');
+        if (mikoWrapper) mikoWrapper.classList.add('miko-hidden');
     }
 
     function hideBackToTop() {
         if (btn) btn.classList.remove('visible');
-        if (doriWrapper) doriWrapper.classList.remove('dori-hidden');
+        if (mikoWrapper) mikoWrapper.classList.remove('miko-hidden');
     }
 
     function scheduleHideTopBtn() {
@@ -82,7 +82,7 @@
         window.addEventListener('scroll', function() {
             var currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-            // When near top (<= 200px), always hide backToTopBtn and show Dori
+            // When near top (<= 200px), always hide backToTopBtn and show Miko
             if (currentScrollY <= 200) {
                 if (hideTopBtnTimer) clearTimeout(hideTopBtnTimer);
                 hideBackToTop();
@@ -107,16 +107,16 @@
     }
 })();
 
-// ── Dori AI Assistant (Chatling AI Integration) ──
+// ── Miko AI Assistant (Chatling AI Integration) ──
 (function(){
-    var wrapper     = document.getElementById('doriWrapper');
-    var videoWrap   = document.getElementById('doriVideoWrap');
-    var video       = document.getElementById('doriVideo');
-    var headerBar   = document.getElementById('doriChatHeaderBar');
-    var bottomBar   = document.getElementById('doriChatBottomBar');
-    var emojiMask   = document.getElementById('doriChatEmojiMask');
-    var borderFrame = document.getElementById('doriChatBorderFrame');
-    var chatX       = document.getElementById('doriChatX');
+    var wrapper     = document.getElementById('mikoWrapper');
+    var videoWrap   = document.getElementById('mikoVideoWrap');
+    var video       = document.getElementById('mikoVideo');
+    var headerBar   = document.getElementById('mikoChatHeaderBar');
+    var bottomBar   = document.getElementById('mikoChatBottomBar');
+    var emojiMask   = document.getElementById('mikoChatEmojiMask');
+    var borderFrame = document.getElementById('mikoChatBorderFrame');
+    var chatX       = document.getElementById('mikoChatX');
     if (!wrapper) return;
 
     var chatOpen = false;
@@ -124,7 +124,7 @@
     var pendingOpen = false;
     var scrollStartY = 0;
     var lastToggleTime = 0;
-    var hintText = wrapper.querySelector('.dori-hint-text');
+    var hintText = wrapper.querySelector('.miko-hint-text');
 
     function getChatIframe() {
         return document.getElementById('chtl-chat-iframe');
@@ -182,7 +182,7 @@
         }
 
         if (hintText) {
-            hintText.textContent = 'Ask Dori';
+            hintText.textContent = 'Ask Miko';
         }
 
         if (pendingOpen) {
@@ -233,7 +233,7 @@
         scrollStartY = window.pageYOffset;
 
         // Activate mascot wrapper & play video at full opacity
-        wrapper.classList.add('dori-active');
+        wrapper.classList.add('miko-active');
         if (videoWrap) {
             videoWrap.style.display = 'flex';
             videoWrap.style.opacity = '1';
@@ -255,10 +255,10 @@
         }
 
         // Show custom header, border-frame, emoji mask & bottom mask overlays
-        if (headerBar)   headerBar.classList.add('dori-chat-open');
-        if (emojiMask)   emojiMask.classList.add('dori-chat-open');
-        if (bottomBar)   bottomBar.classList.add('dori-chat-open');
-        if (borderFrame) borderFrame.classList.add('dori-chat-open');
+        if (headerBar)   headerBar.classList.add('miko-chat-open');
+        if (emojiMask)   emojiMask.classList.add('miko-chat-open');
+        if (bottomBar)   bottomBar.classList.add('miko-chat-open');
+        if (borderFrame) borderFrame.classList.add('miko-chat-open');
 
         // Trigger Chatling open
         try {
@@ -295,13 +295,13 @@
             iframe.style.setProperty('opacity', '0', 'important');
             iframe.style.setProperty('pointer-events', 'none', 'important');
         }
-        if (headerBar)   headerBar.classList.remove('dori-chat-open');
-        if (emojiMask)   emojiMask.classList.remove('dori-chat-open');
-        if (bottomBar)   bottomBar.classList.remove('dori-chat-open');
-        if (borderFrame) borderFrame.classList.remove('dori-chat-open');
+        if (headerBar)   headerBar.classList.remove('miko-chat-open');
+        if (emojiMask)   emojiMask.classList.remove('miko-chat-open');
+        if (bottomBar)   bottomBar.classList.remove('miko-chat-open');
+        if (borderFrame) borderFrame.classList.remove('miko-chat-open');
 
         // 3. Restore idle mascot image and stop video
-        wrapper.classList.remove('dori-active');
+        wrapper.classList.remove('miko-active');
         if (videoWrap) {
             videoWrap.style.display = 'none';
             videoWrap.style.opacity = '';
@@ -312,7 +312,7 @@
         }
     }
 
-    // ── Click Dori Mascot → Toggle chat ──
+    // ── Click Miko Mascot → Toggle chat ──
     wrapper.addEventListener('click', function(e) {
         e.stopPropagation();
         var now = Date.now();
@@ -325,7 +325,7 @@
             if (!isChatReady) {
                 if (pendingOpen) {
                     pendingOpen = false;
-                    if (hintText) hintText.textContent = 'Ask Dori';
+                    if (hintText) hintText.textContent = 'Ask Miko';
                 } else {
                     pendingOpen = true;
                     if (hintText) hintText.textContent = 'Loading...';
